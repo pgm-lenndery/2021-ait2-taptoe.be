@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-image: url('../images/logo/logo_taptoe.svg');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: 35vw 100%;
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 2rem;
+  }
+
+  &__brand {}
+
+  &__ornament {
+    position: absolute;
+    max-height: calc(30px + 4rem);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    transform: translateX(35%);
+    z-index: -1;
+
+    img {
+      object-fit: cover;
+      object-position: bottom;
+      max-height: inherit;
+    }
+  }
+}
+
+// max-height: x y;

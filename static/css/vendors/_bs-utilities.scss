@@ -1,0 +1,49 @@
+// $utilities: ("margin": (
+//     property: margin,
+//     class: m,
+//     values: (
+//         l: 0,
+//         25: .25,
+//         50: .5,
+//         75: .75,
+//         100: 1,
+//     )
+// ));
+
+$spacer: 1rem !default;
+
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+$sides: (
+    '': 'null',
+    t: top,
+    b: bottom,
+    l: left,
+    r: right
+);
+
+/* rbr */
+
+@each $name, $side in $sides {
+    .m#{$name}-6 {
+        margin-#{$side}: $spacer * 5;
+    }
+}
+
+@each $break, $point in $breakpoints {
+    
+    @media (min-width: #{$point}) {
+        
+        @each $name, $side in $sides {
+            .m#{$name}-#{$break}-6 {
+                margin-#{$side}: $spacer * 5;
+            }
+        }
+        
+    }
+}

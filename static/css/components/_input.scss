@@ -1,0 +1,27 @@
+.input-wrapper {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    background-color: $grey200;
+    border-radius: $bdRadius;
+    
+    input {
+        height: 3rem;
+        background-color: transparent;
+        border: none;
+        font-family: $fontSub;
+        
+        &, &:focus, &:focus-within {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+    
+    .feather {
+        --size: 18px;
+        width: var(--size);
+        height: var(--size);
+        stroke-width: 3px;
+        margin-right: 1rem;
+    }
+}

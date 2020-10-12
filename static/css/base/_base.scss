@@ -17,3 +17,9 @@ img {
 #app {
 
 }
+
+iframe, canvas {
+    &, &:focus, &:focus-within {
+        outline: none;
+    }
+}

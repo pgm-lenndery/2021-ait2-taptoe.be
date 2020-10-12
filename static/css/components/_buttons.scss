@@ -1,0 +1,21 @@
+.btn {
+    &.btn--variable {
+        display: flex;
+        align-items: center;
+        padding: .6rem 1rem;
+        background-color: $grey200;
+        border-radius: $bdRadius;
+
+        &,
+        * {
+            font-family: $fontSub;
+        }
+
+        .feather {
+            --size: 20px;
+            width: var(--size);
+            height: var(--size);
+            margin-left: .6rem;
+        }
+    }
+}

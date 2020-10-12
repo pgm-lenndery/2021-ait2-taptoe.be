@@ -1,0 +1,40 @@
+.footer {
+    position: relative;
+    margin-top: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+    &__logo {
+        position: absolute;
+        left: 50%;
+        top: -50%;
+        transform: translateX(-50%);
+    }
+    
+    &__nav {
+        width: fit-content;
+        
+        ul {
+            display: flex;
+            
+            * {font-family: $fontSub;}
+            a {text-decoration: none; color: initial;}
+            
+            li {
+                --spacing: 30px;
+                list-style-type: '・';
+                padding-left: calc(var(--spacing)/2);
+                margin-right: calc(var(--spacing)/1);
+                
+                &:first-child {
+                    list-style: none;
+                    padding-left: 0;
+                }
+                
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
