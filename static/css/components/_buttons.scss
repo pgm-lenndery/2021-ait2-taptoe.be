@@ -1,5 +1,7 @@
 .btn {
-    &.btn--variable {
+    white-space: nowrap;
+    
+    &--variable {
         display: flex;
         align-items: center;
         padding: .6rem 1rem;
@@ -17,5 +19,30 @@
             height: var(--size);
             margin-left: .6rem;
         }
+    }
+    
+    &--main {
+        font-size: 1.3rem;
+        border-radius: $bdRadius;
+        color: white;
+        @extend .bg-color--second;
+        
+        &:hover {
+            color: white;
+            opacity: .8;
+        }
+    }
+    
+}
+
+[data-label="accountIntroduction"] {
+    span {
+        font-size: 1.4rem;
+        font-weight: 600;
+        @extend .color--second;
+    }
+    
+    .btn {
+        margin: 0 1rem;
     }
 }

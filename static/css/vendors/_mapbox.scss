@@ -1,9 +1,69 @@
 #mapbox {
     width: 100%;
     height: 400px;
+    
+    &, * {
+        transition: none;
+    }
 
     .mapboxgl-ctrl-bottom-right,
     .mapboxgl-ctrl-bottom-left {
         display: none;
+    }
+    
+    .mapboxgl-popup {
+        &-content {
+            min-width: 200px;
+            padding: .8rem 1rem;
+            border-radius: $bdRadius;
+            box-shadow: none;
+            border: none;
+            
+            .listing {
+                &__type {
+                    display: block;
+                    text-transform: lowercase;
+                    font-size: .9rem;
+                    margin-bottom: .2rem;
+                }
+                &__name {
+                    margin-bottom: .4rem;
+                    font-family: $fontSub;
+                }
+                &__location {
+                    margin-bottom: 0;
+                    font-family: $fontSub;
+                    @extend .color--grey600;
+                }
+            }
+        }
+        
+        &-tip {
+            border: none;
+            width: 40px;
+            height: 13px;
+            background-image: url('../images/map_listing_tip.svg');
+            background-repeat: no-repeat;
+            background-position: top center;
+        }
+        
+        .mapbox__marker {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translate(-50%,50%);
+            z-index: 1;
+            @extend .bg-color--grey600;
+        }
+    }
+    
+    .mapbox__marker {
+        --size: 12px;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        cursor: pointer;
+        // z-index: 100;
+        @extend .bg-color--second;
     }
 }
