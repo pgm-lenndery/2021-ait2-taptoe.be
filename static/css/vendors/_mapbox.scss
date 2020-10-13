@@ -20,6 +20,9 @@
             border: none;
             
             .listing {
+                text-decoration: none;
+                color: initial;
+                
                 &__type {
                     display: block;
                     text-transform: lowercase;
@@ -64,6 +67,6 @@
         border-radius: 50%;
         cursor: pointer;
         // z-index: 100;
-        @extend .bg-color--second;
+        @extend .bg-color--main;
     }
 }

@@ -3,8 +3,7 @@ import {
     updateClipboard,
     Element
 } from 'cutleryjs';
-import dataParsedZip from '../../data-with-zip';
-import dataFinal from '../../data-final';
+import dataFinal from '../../data/data-final';
 
 const getLocations = (data) => {
     // return dataParsedZip.filter(loc => loc.location?.zip >= 9000 && loc.location?.zip <= 9080)
@@ -14,11 +13,11 @@ const getLocations = (data) => {
 Array.prototype.setMarkersFromArray = function(box) {
     this.forEach(org => {
         const popup = new mapboxgl.Popup({ offset: -13 }).setHTML(`
-            <div class="listing">
+            <a class="listing" href="/listings/${org.location.id}">
                 <small class="d-block listing__type">${org.type}</small>
                 <h5 class="listing__name">${org.name}</h5>
                 <p class="listing__location">${org.location.gemeente}</p>
-            </div>
+            </a>
             <div class="mapbox__marker"></div>
         `);
         
@@ -26,7 +25,6 @@ Array.prototype.setMarkersFromArray = function(box) {
         el.class(['mapbox__marker']);
         
         const {latitude, longitude} = org.location.positie;
-        // console.log()
         new mapboxgl.Marker(el.return())
             .setLngLat([longitude, latitude])
             .setPopup(popup) // sets a popup on this marker
@@ -34,6 +32,7 @@ Array.prototype.setMarkersFromArray = function(box) {
     })
 }
 
+let mapHoverPosition = 0;
 const mapboxInit = () => {
     mapboxgl.accessToken = 'pk.eyJ1IjoibGVubmVydGRlcnljayIsImEiOiJjazN1N3ViZTMwOWRrM2VwaXpvY3I1a2MzIn0.UJjqfOdCRHzOPdP2j7lDmg';
     const map = new mapboxgl.Map({
@@ -48,6 +47,7 @@ const mapboxInit = () => {
     
     map.on('mousemove', ({lngLat}) => {
         const {lng, lat} = lngLat.wrap();
+        mapHoverPosition = lngLat.wrap();
         node('[data-label="mapInfo"]').innerHTML = `lng: ${lng.toFixed(2)}, lat: ${lat.toFixed(2)}`;
             // e.point is the x, y coordinates of the mousemove event relative
             // to the top-left corner of the map
@@ -64,8 +64,11 @@ const mapboxInit = () => {
     //     }
     // })
     
-    
     getLocations(dataFinal).setMarkersFromArray(map);
+}
+
+const getNearbyGroups = (positon = mapHoverPosition) => {
+    getLocations(dataFinal)
 }
 
 export {
