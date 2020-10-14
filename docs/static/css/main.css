@@ -386,6 +386,39 @@ iframe, iframe:focus, iframe:focus-within, canvas, canvas:focus, canvas:focus-wi
 .listing__details .row {
   --bs-gutter-x: 6rem; }
 
+.listing__score-summ ul {
+  display: flex;
+  margin: 0 auto;
+  padding: 1rem;
+  width: fit-content;
+  list-style-type: none;
+  background-color: white;
+  border-radius: 20px;
+  transform: translateY(-50%); }
+
+.listing__score-summ li {
+  display: flex;
+  margin-right: 1rem;
+  background-color: #EBEBEB;
+  padding: .5rem .8rem;
+  border-radius: 10px;
+  white-space: nowrap; }
+  .listing__score-summ li:last-child {
+    margin-right: 0; }
+
+.listing__score-summ .score__label {
+  color: #868686;
+  margin-right: .6rem; }
+
+.listing__score-summ .score__star {
+  display: flex;
+  align-items: center;
+  font-family: parisplus-std, sans-serif;
+  font-weight: bold;
+  color: #797979; }
+  .listing__score-summ .score__star img {
+    margin-left: .3rem; }
+
 [data-theme="listing-detail"] .listing__header {
   position: relative; }
 

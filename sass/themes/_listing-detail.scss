@@ -38,6 +38,48 @@
     }
 }
 
+.listing__score-summ {
+    ul {
+        display: flex;
+        margin: 0 auto;
+        padding: 1rem;
+        width: fit-content;
+        list-style-type: none;
+        background-color: white;
+        border-radius: $bdRadius*2;
+        transform: translateY(-50%);
+    }
+    
+    li {
+        display: flex;
+        margin-right: 1rem;
+        background-color: $grey400;
+        padding: .5rem .8rem;
+        border-radius: $bdRadius;
+        white-space: nowrap;
+        
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    
+    .score__label {
+        color: $grey600;
+        margin-right: .6rem;
+    }
+    .score__star {
+        display: flex;
+        align-items: center;
+        font-family: $fontSub;
+        font-weight: bold;
+        color: rgb(121, 121, 121);
+        
+        img {
+            margin-left: .3rem;
+        }
+    }
+}
+
 [data-theme="listing-detail"] {
     .listing {
         &__header {
