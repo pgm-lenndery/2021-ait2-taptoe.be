@@ -1,9 +1,13 @@
 .footer {
-    position: relative;
-    margin-top: 200px;
-    padding-top: 75px;
-    padding-bottom: 50px;
-    @extend .bg-color--grey400;
+    margin-top: auto;
+    
+    &__wrapper {
+        position: relative;
+        margin-top: 200px;
+        padding-top: 75px;
+        padding-bottom: 50px;
+        @extend .bg-color--grey400;
+    }
     
     &__logo {
         position: absolute;

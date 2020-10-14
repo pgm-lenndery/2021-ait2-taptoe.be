@@ -29,9 +29,17 @@ $sides: (
 
 /* rbr */
 
+$splitter: '-';
 @each $name, $side in $sides {
-    .m#{$name}-6 {
-        margin-#{$side}: $spacer * 5;
+    @if $side == 'null' {
+        .m#{$name}-6 {
+            margin: $spacer * 5;
+        }
+    }
+    @if $side != 'null' {
+        .m#{$name}-6 {
+            margin-#{$side}: $spacer * 5;
+        }
     }
 }
 
