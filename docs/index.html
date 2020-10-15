@@ -50,12 +50,12 @@
                     </div>
                 </form>
             </div>
-            <a class="header__user-detail ml-auto" href="/account">
+            <div class="header__user-detail ml-auto" data-sesam-trigger="topNav">
                 <button class="btn btn--variable">
                     <span class="btn__text">Haegepoorters Destelbergen</span>
                     <i data-feather="user"></i>
                 </button>
-            </a>
+            </div>
             <!-- <div class="header__ornament">
                 <img src="../static/images/logo/logo_taptoe.svg" alt="" />
             </div> -->
@@ -91,6 +91,7 @@
                     <li>
                         <a href="/listings/?view=list">
                             <h5 class="mb-0">meer locaties<br>bekijken</h5>
+                            <i data-feather="arrow-right"></i>
                         </a>
                     </li>
                 </ul>
@@ -129,6 +130,10 @@
         </div>
     </footer>
     <script type="module" src="./core.js"></script>
+    
+    <div data-label="topNav" class="topnav" data-sesam-target="topNav">
+        <div class="topnav__ornament"></div>
+    </div>
 </body>
 
 </html>

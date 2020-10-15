@@ -18,6 +18,10 @@
   &__user-detail, &__user-detail * {
     text-decoration: none;
   }
+  
+  &__user-detail {
+    z-index: 1000;
+  }
 
   &__brand {}
 

@@ -349,6 +349,8 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
     padding: 2rem 2rem; }
   .header__user-detail, .header__user-detail * {
     text-decoration: none; }
+  .header__user-detail {
+    z-index: 1000; }
   .header__ornament {
     position: absolute;
     max-height: calc(30px + 4rem);
@@ -421,6 +423,27 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
     stroke-width: 3px;
     margin-right: 1rem; }
 
+.topnav, .topnav * {
+  transition-duration: .5s; }
+
+.topnav[data-sesam-target].sesam:not(.sesam-show) {
+  display: block;
+  --size: 0vw; }
+
+.topnav.sesam-show {
+  --size: 100vw; }
+
+.topnav__ornament {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 100%;
+  background-color: #12255E;
+  z-index: 100;
+  transform: translate(50%, -50%); }
+
 [data-theme="default"] header {
   border-bottom: 2px solid #D0D0D0;
   margin-bottom: 5rem; }
@@ -449,22 +472,40 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   [data-label="lisitingSuggestions"] ul {
     display: grid;
     margin: 0;
-    padding: 1rem 1.4rem 1.2rem 1.4rem;
+    padding: 0px;
     background-color: #EBEBEB;
     border-radius: 10px;
     list-style: none;
     grid-template-columns: 25% 25% 25% 25%; }
     [data-label="lisitingSuggestions"] ul li {
-      display: flex;
-      align-items: center;
-      padding: 0 2rem;
-      grid-row: 1/1;
-      border-right: 2px solid #D0D0D0; }
+      padding: 1.2rem 1.8rem 1.2rem 0;
+      grid-row: 1/1; }
+      [data-label="lisitingSuggestions"] ul li a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding-right: 1.8rem;
+        border-right: 2px solid #D0D0D0; }
       [data-label="lisitingSuggestions"] ul li:first-child {
-        padding-left: 0; }
+        padding-left: 1.8rem; }
+      [data-label="lisitingSuggestions"] ul li:nth-last-child(2) a {
+        border-right: none;
+        padding-right: 0; }
       [data-label="lisitingSuggestions"] ul li:last-child {
         border: none;
-        padding-right: 0; }
+        padding-left: 1.8rem;
+        background-color: #D0D0D0;
+        border-radius: 0px 10px 10px 0px; }
+        [data-label="lisitingSuggestions"] ul li:last-child a {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between; }
+        [data-label="lisitingSuggestions"] ul li:last-child * {
+          text-decoration: none;
+          color: #767676; }
 
 .listing-card {
   text-decoration: none;

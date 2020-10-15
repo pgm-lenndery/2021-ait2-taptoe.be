@@ -7,9 +7,12 @@ import dataFinal from '../../data/data-final.js';
 import {pathCallback} from '../../static/modules/routing.js';
 
 let interactive = true, center = [4.07, 51.03], zoom = 9;
+// center = [3.725509513348925, 51.05405769065996];
+// zoom = 11;
+
 pathCallback('/detail')(() => {
     interactive = false;
-    center = [3.765899661221067, 51.056130275849384];
+    center = [3.7382124552357254, 51.1259941281501];
     zoom = 16;
 })
 
@@ -27,9 +30,10 @@ const mapboxInit = () => {
     });
     
     map.addControl(new mapboxgl.NavigationControl());
-    map.on('mousemove', ({lngLat}) => {
+    map.on('click', ({lngLat}) => {
         const {lng, lat} = lngLat.wrap();
         mapHoverPosition = lngLat.wrap();
+        console.log(mapHoverPosition);
         // node('[data-label="mapInfo"]').innerHTML = `lng: ${lng.toFixed(2)}, lat: ${lat.toFixed(2)}`;
     });
     getLocations(dataFinal).setMarkersFromArray(map);

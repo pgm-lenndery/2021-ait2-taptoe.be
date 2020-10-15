@@ -37,27 +37,52 @@
     ul {
         display: grid;
         margin: 0;
-        padding: 1rem 1.4rem 1.2rem 1.4rem;
+        padding: 0px;
         background-color: $grey400;
         border-radius: $bdRadius;
         list-style: none;
         grid-template-columns: 25% 25% 25% 25%;
         
         li {
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
+            padding: 1.2rem 1.8rem 1.2rem 0;
             grid-row: 1/1;
-            border-right: 2px solid $grey500;
-            // max-width: calc(100%/5);
+            
+            a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                padding-right: 1.8rem;
+                border-right: 2px solid $grey500;
+            }
             
             &:first-child {
-                padding-left: 0;
+                padding-left: 1.8rem;
+            }
+            
+            &:nth-last-child(2) a {
+                border-right: none;
+                padding-right: 0;
             }
             
             &:last-child {
                 border: none;
-                padding-right: 0;
+                padding-left: 1.8rem;
+                background-color: $grey500;
+                border-radius: 0px $bdRadius $bdRadius 0px;
+                
+                a {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                
+                * {
+                    text-decoration: none;
+                    color: $grey700;
+                }
             }
         }
     }
