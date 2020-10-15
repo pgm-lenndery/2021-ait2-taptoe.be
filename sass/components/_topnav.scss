@@ -9,7 +9,8 @@
     }
     
     &.sesam-show {
-        --size: 100vw;
+        // --size: 100vw;
+        --size: calc(100vh*2);
     }
     
     &__ornament {

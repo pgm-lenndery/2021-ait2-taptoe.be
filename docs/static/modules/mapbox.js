@@ -39,7 +39,6 @@ const mapboxInit = () => {
     getLocations(dataFinal).setMarkersFromArray(map);
 }
 
-
 const getLocations = (data) => {
     // return dataParsedZip.filter(loc => loc.location?.zip >= 9000 && loc.location?.zip <= 9080)
     return data.filter(loc => loc.location?.positie)

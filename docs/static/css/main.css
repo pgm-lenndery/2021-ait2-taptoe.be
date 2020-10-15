@@ -431,7 +431,7 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   --size: 0vw; }
 
 .topnav.sesam-show {
-  --size: 100vw; }
+  --size: calc(100vh*2); }
 
 .topnav__ornament {
   position: fixed;
@@ -444,7 +444,7 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   z-index: 100;
   transform: translate(50%, -50%); }
 
-[data-theme="default"] header {
+[data-theme="page"] header {
   border-bottom: 2px solid #D0D0D0;
   margin-bottom: 5rem; }
 

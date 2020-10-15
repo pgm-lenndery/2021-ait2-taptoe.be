@@ -12,6 +12,10 @@ pathCallback('/detail')((path) => {
      console.log('mapbox')
      mapboxInit();
 });
+pathCallback('/listings')((path) => {
+     console.log('mapbox')
+     mapboxInit();
+});
 
 sesamCollapse.initialize();
 feather.replace();
