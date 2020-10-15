@@ -50,20 +50,52 @@
                     </div>
                 </form>
             </div>
-            <div class="header__user-detail ml-auto">
+            <a class="header__user-detail ml-auto" href="/account">
                 <button class="btn btn--variable">
                     <span class="btn__text">Haegepoorters Destelbergen</span>
                     <i data-feather="user"></i>
                 </button>
-            </div>
+            </a>
             <!-- <div class="header__ornament">
                 <img src="../static/images/logo/logo_taptoe.svg" alt="" />
             </div> -->
         </div>
     </header>
     <main>
-        <div id="mapbox" class="mapbox"></div>
-        <div data-label="mapInfo"></div>
+        <div class="mapbox-wrapper">
+            <div id="mapbox" class="mapbox"></div>
+            <div data-label="mapInfo"></div>
+            <div data-label="lisitingSuggestions" class="container">
+                <ul>
+                    <li>
+                        <a class="listing-card" href="/listings/${org.location.id}">
+                            <small class="d-block listing__type">scouts</small>
+                            <h5 class="listing__name">Haegepoorters Destelbergen</h5>
+                            <p class="listing__location">Destelbergen</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="listing-card" href="/listings/${org.location.id}">
+                            <small class="d-block listing__type">scouts</small>
+                            <h5 class="listing__name">Sint-Bernadette</h5>
+                            <p class="listing__location">Sint-Amandsberg</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="listing-card" href="/listings/${org.location.id}">
+                            <small class="d-block listing__type">scouts</small>
+                            <h5 class="listing__name">Sint-Lucia</h5>
+                            <p class="listing__location">Oostakker</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/listings/?view=list">
+                            <h5 class="mb-0">meer locaties<br>bekijken</h5>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="container mt-6 mb-6">
             <h2 class="display-1 text-center font-weight--600 color--main">
                 Eenvoudig lokalen of</br>
@@ -72,26 +104,28 @@
             </h2>
             <div data-label="accountIntroduction" class="d-flex align-items-center w-fit mt-6 mx-auto">
                 <span>begin hier</span>
-                <a href="" class="btn btn--main">als huurder</a>
+                <a href="/account?type=tenant" class="btn btn--main">als huurder</a>
                 <span>of</span>
-                <div class="btn btn--main">als verhuurder</div>
+                <a href="/account?type=owner" class="btn btn--main">als verhuurder</a>
             </div>
         </div>
     </main>
     <footer class="footer">
-        <div class="footer__logo">
-            <img height="70px" src="./static/images/logo/logo_taptoe_combo.svg" alt="">
-        </div>
-        <div class="container">
-            <nav class="footer__nav d-block mx-auto">
-                <ul>
-                    <li><a href="#">Over Taptoe</a></li>
-                    <li><a href="#">Huur een locatie</a></li>
-                    <li><a href="#">Wordt verhuurder</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Privacy</a></li>
-                </ul>
-            </nav>
+        <div class="footer__wrapper">
+            <div class="footer__logo">
+                <img height="70px" src="./static/images/logo/logo_taptoe_combo.svg" alt="">
+            </div>
+            <div class="container">
+                <nav class="footer__nav d-block mx-auto">
+                    <ul>
+                        <li><a href="#">Over Taptoe</a></li>
+                        <li><a href="#">Huur een locatie</a></li>
+                        <li><a href="#">Wordt verhuurder</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </footer>
     <script type="module" src="./core.js"></script>

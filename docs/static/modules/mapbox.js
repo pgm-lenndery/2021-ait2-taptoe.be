@@ -4,19 +4,28 @@ import {
     Element
 } from 'https://unpkg.com/cutleryjs@3.5.5/dist/js/index.js';
 import dataFinal from '../../data/data-final.js';
+import {pathCallback} from '../../static/modules/routing.js';
+
+let interactive = true, center = [4.07, 51.03], zoom = 9;
+pathCallback('/detail')(() => {
+    interactive = false;
+    center = [3.765899661221067, 51.056130275849384];
+    zoom = 16;
+})
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibGVubmVydGRlcnljayIsImEiOiJjazN1N3ViZTMwOWRrM2VwaXpvY3I1a2MzIn0.UJjqfOdCRHzOPdP2j7lDmg';
 
-const map = new mapboxgl.Map({
-    container: 'mapbox',
-    // style: 'mapbox://styles/mapbox/streets-v11',
-    style: 'mapbox://styles/lennertderyck/ckg6w850l502e19olpjp7v1gg',
-    center: [4.07, 51.03],
-    zoom: 9
-});
-
 let mapHoverPosition = 0;
 const mapboxInit = () => {    
+    const map = new mapboxgl.Map({
+        container: 'mapbox',
+        // style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/lennertderyck/ckg6w850l502e19olpjp7v1gg',
+        center: center,
+        zoom: zoom,
+        interactive: interactive
+    });
+    
     map.addControl(new mapboxgl.NavigationControl());
     map.on('mousemove', ({lngLat}) => {
         const {lng, lat} = lngLat.wrap();

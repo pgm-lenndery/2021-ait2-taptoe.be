@@ -1,5 +1,6 @@
 .btn {
     white-space: nowrap;
+    border-radius: $bdRadius;
     
     &--variable {
         display: flex;
@@ -33,6 +34,9 @@
         }
     }
     
+    &--grey {
+        background: $grey400;
+    }
 }
 
 [data-label="accountIntroduction"] {

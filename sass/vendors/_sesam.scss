@@ -1,0 +1,5 @@
+[data-sesam-target].sesam {
+    &:not(.sesam-show) {
+        display: none;
+    }
+}

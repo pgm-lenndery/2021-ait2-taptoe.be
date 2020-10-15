@@ -39,9 +39,9 @@
 <body data-theme="listing-detail">
     <header class="header">
         <div class="header__wrapper container-fluid">
-            <div class="header__brand">
+            <a href="/" class="header__brand">
                 <img height="30px" src="../static/images/logo/logo_taptoe_monogram.svg" alt="" />
-            </div>
+            </a>
             <div class="header__search">
                 <form method="POST" action="./">
                     <div class="input-wrapper">
@@ -50,12 +50,12 @@
                     </div>
                 </form>
             </div>
-            <div class="header__user-detail ml-auto">
+            <a class="header__user-detail ml-auto" href="/account">
                 <button class="btn btn--variable">
                     <span class="btn__text">Haegepoorters Destelbergen</span>
                     <i data-feather="user"></i>
                 </button>
-            </div>
+            </a>
             <!-- <div class="header__ornament">
                 <img src="../static/images/logo/logo_taptoe.svg" alt="" />
             </div> -->
@@ -74,8 +74,9 @@
                                     <h2 class="listing-card__name">Haegepoorters Destelbergen</h2>
                                     <p class="listing-card__contact-detail"><a href="#">verhuur@haegepoorters.be</a> | <a href="#">haegepoorters.be</a></p>
                                 </div>
-                                <div class="col">
-                                    <div class="btn btn--main">Dit lokaal reserveren</div>
+                                <div class="col d-flex flex-column align-items-end justify-content-center">
+                                    <a class="btn btn--main listing__reserve mb-3" href="#">Dit lokaal reserveren</a>
+                                    <a href="#" class="text--user-input">Brochure lezen</a>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +117,7 @@
                                     </div>
                                     <div class="col text--user-input">
                                         <strong>Adres</strong><br>
-                                        <span>Bijlokestraat 19,<br> 9070 Destelbergen</span>
+                                        <span>Bijlokestraat 18,<br> 9070 Destelbergen</span>
                                     </div>
                                 </div>
                             </div>
