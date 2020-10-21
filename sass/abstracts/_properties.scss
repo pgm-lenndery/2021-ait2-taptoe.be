@@ -3,6 +3,10 @@
 //   filter: saturate(1.3);
 // }
 
+.container--smaller {
+    max-width: 1120px;
+}
+
 .row--wide {
     --bs-gutter-x: 5rem;
 }

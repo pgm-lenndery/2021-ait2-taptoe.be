@@ -48,10 +48,35 @@
         // z-index: 100;
         @extend .bg-color--main;
     }    
+    
+    &-wrapper {
+        [data-label="listingsView"] {
+            position: absolute;
+            top: 2rem; left: 2rem;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+            background-color: $colorSecond;
+            user-select: none;
+            
+            * {color: white;}
+        }
+    }
 }
 
-[data-theme="listing-detail"] {
+
+
+[data-theme-sub="listing-detail"] {
     .mapbox--detail-view {
         height: 220px;
+    }
+}
+
+[data-theme-sub="listingsOverview"] {
+    .mapbox.sesam.sesam-hidden {
+        display: block;
+        max-height: 111px;
+        overflow: hidden;
+        pointer-events: none;
     }
 }

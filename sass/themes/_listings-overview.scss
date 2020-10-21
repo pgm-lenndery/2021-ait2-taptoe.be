@@ -1,0 +1,56 @@
+[data-label="listingsList"] {
+    .listing-card {
+        display: grid;
+        justify-content: unset;
+        grid-template-columns: 50px auto 30%;
+        column-gap: 2rem;
+        background-color: $grey400;
+        padding: 1.4rem 1.4rem 1.4rem 2rem;
+        border-radius: $bdRadius;
+        
+        > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        &__org-img img {
+            border-radius: 100%;
+        }
+        
+        &__address {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: $bdRadius*2;
+            
+            * {
+                font-family: $fontSub;
+                color: $grey600;
+            }
+            
+            .feather {
+                --size: 20px;
+                stroke: $colorSecond;
+                stroke-width: 3px;
+                margin-right: 1rem;
+                width: var(--size);
+                height: var(--size);
+            }
+            
+            .wrapper {font-size: 80%;}
+        }
+    }
+}
+
+[data-theme-sub="listingsOverview"] {
+    .mapbox {
+        height: 65vh;
+    }
+    
+    .footer__wrapper {
+        margin-top: 0;
+    }
+}

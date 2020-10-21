@@ -2,28 +2,32 @@
     header {
         border-bottom: 2px solid $grey500;
         margin-bottom: 5rem;
-    }
+    }   
 }
 
-.listing-card {
-    display: block;
-    text-decoration: none;
-    color: initial;
-    
-    .listing__type {
-        display: block;
-        text-transform: lowercase;
-        font-size: .9rem;
-        margin-bottom: .2rem;
-    }
-    .listing__name {
-        margin-bottom: .4rem;
-        font-family: $fontSub;
-    }
-    .listing__location {
-        margin-bottom: 0;
-        font-family: $fontSub;
-        @extend .color--grey600;
+[data-theme="page"], [data-theme="default"] {
+    .listing-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-decoration: none;
+        color: initial;
+        
+        .listing__type {
+            display: block;
+            text-transform: lowercase;
+            font-size: .9rem;
+            margin-bottom: .2rem;
+        }
+        .listing__name {
+            margin-bottom: .4rem;
+            font-family: $fontSub;
+        }
+        .listing__location, .listing__capacity {
+            margin-bottom: 0;
+            font-family: $fontSub;
+            @extend .color--grey600;
+        }
     }
 }
 

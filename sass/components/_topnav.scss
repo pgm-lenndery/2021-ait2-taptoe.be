@@ -3,7 +3,7 @@
         transition-duration: .5s;
     }
     
-    &[data-sesam-target].sesam:not(.sesam-show) {
+    &[data-sesam-target].sesam.sesam-hidden {
         display: block;
         --size: 0vw;
     }

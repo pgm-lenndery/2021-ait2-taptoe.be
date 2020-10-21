@@ -66,6 +66,15 @@ Array.prototype.setMarkersFromArray = function(box) {
     })
 }
 
+Array.prototype.createList = function(wrapper) {
+    this.forEach(item => {
+        const card = new Element('a');
+        card.inner(`
+        
+        `)
+    })
+}
+
 const getNearbyGroups = (positon = mapHoverPosition) => {
     getLocations(dataFinal)
 }

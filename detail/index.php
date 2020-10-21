@@ -1,7 +1,11 @@
+<?php require_once '../config.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <base href="<?= $BASE_URI ?>">
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -33,14 +37,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
         integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-    <link rel="stylesheet" href="../static/css/main.css" />
+    <link rel="stylesheet" href="static/css/main.css" />
 </head>
 
-<body data-theme="default">
+<body data-theme="default" data-theme-sub="listing-detail">
     <header class="header">
         <div class="header__wrapper container-fluid">
-            <a href="/" class="header__brand">
-                <img height="30px" src="../static/images/logo/logo_taptoe_monogram.svg" alt="" />
+            <a href="#" class="header__brand">
+                <img height="30px" src="static/images/logo/logo_taptoe_monogram.svg" alt="" />
             </a>
             <div class="header__search">
                 <form method="POST" action="./">
@@ -87,19 +91,19 @@
                     <ul>
                         <li>
                             <span class="score__label">toegankelijk</span>
-                            <span class="score__star">4,5 <img src="../static/images/star.svg" alt=""></span>
+                            <span class="score__star">4,5 <img src="static/images/star.svg" alt=""></span>
                         </li>
                         <li>
                             <span class="score__label">hygiëne</span>
-                            <span class="score__star">4,3 <img src="../static/images/star.svg" alt=""></span>
+                            <span class="score__star">4,3 <img src="static/images/star.svg" alt=""></span>
                         </li>
                         <li>
                             <span class="score__label">ruim</span>
-                            <span class="score__star">5 <img src="../static/images/star.svg" alt=""></span>
+                            <span class="score__star">5 <img src="static/images/star.svg" alt=""></span>
                         </li>
                         <li>
                             <span class="score__label">prijs/kwaliteit</span>
-                            <span class="score__star">4,2 <img src="../static/images/star.svg" alt=""></span>
+                            <span class="score__star">4,2 <img src="static/images/star.svg" alt=""></span>
                         </li>
                     </ul>
                 </div>
@@ -153,28 +157,11 @@
             </div>
         </div>
     </main>
-    <footer class="footer">
-        <div class="footer__wrapper">
-            <div class="footer__logo">
-                <img height="70px" src="../static/images/logo/logo_taptoe_combo.svg" alt="">
-            </div>
-            <div class="container">
-                <nav class="footer__nav d-block mx-auto">
-                    <ul>
-                        <li><a href="#">Over Taptoe</a></li>
-                        <li><a href="#">Huur een locatie</a></li>
-                        <li><a href="#">Wordt verhuurder</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Privacy</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </footer>
+    <?php require '../views/footer.php' ?>
     <div data-label="topNav" class="topnav" data-sesam-target="topNav">
         <div class="topnav__ornament"></div>
     </div>
-    <script type="module" src="../core.js"></script>
+    <script type="module" src="static/modules/core.js"></script>
 </body>
 
 </html>

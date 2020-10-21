@@ -1,6 +1,8 @@
 .input-wrapper {
-    padding: 0 1rem;
+    // padding: 0 1rem;
+    padding: .6rem 1rem;
     display: flex;
+    width: fit-content;
     align-items: center;
     background-color: $grey200;
     border-radius: $bdRadius;
@@ -15,6 +17,10 @@
             outline: none;
             box-shadow: none;
         }
+    }
+    
+    select {
+        background-color: transparent;
     }
     
     .feather {
