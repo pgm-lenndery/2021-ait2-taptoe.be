@@ -1,12 +1,25 @@
 <?php 
 $name = $_GET['name'] ?? '';
 $zip = $_GET['zip'] ?? '';
-require '../config.php';
+require_once '../config.php';
 
 // $sql = "SELECT * FROM `locations` WHERE `name` LIKE :name";
-$sql = "SELECT * FROM `locations` WHERE `name` LIKE :name AND `address_zip` LIKE :zip";
-// $sql = "SELECT * FROM `locations`";
-
+// $sql = "SELECT * 
+//         FROM `locations` 
+//         WHERE `name` 
+//         LIKE :name AND `address_zip` LIKE :zip";
+        
+$sql = "SELECT * 
+        FROM `locations` 
+        INNER JOIN `users` ON locations.owner = `users`.`user_id`
+        WHERE `locations`.`name` 
+        LIKE :name 
+        AND `address_zip` LIKE :zip";
+        
+// $sql = "SELECT * 
+//         FROM `locations` 
+//         INNER JOIN `users` ON locations.owner = `users`.`user_id`
+//         ";
 
 $pdo_statement = $db->prepare($sql);
 $pdo_statement->execute([

@@ -20,3 +20,18 @@
 // })
 
 // console.log(getZipByName('Gent'));
+
+const orgConvert = (name) => {
+    return {
+        'sgv': 'scouts',
+        'lsc': 'scouts',
+        'ksa': 'ksa',
+        'chr': 'chiro',
+        'fos': 'scouts',
+        'prv': 'privé',
+    }[name]
+}
+
+export {
+    orgConvert
+}

@@ -1,46 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Parcel Boilerplate</title>
-
-    <!-- meta -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- <link rel="shortcut icon" type='image/x-icon' href="https://lennertderyck.be/assets/images/LOGO_LDR_ZWART.ico"/> -->
-    <!-- <link rel="icon" type="image/png" href="https://lennertderyck.be/assets/images/LOGO_LDR_ZWART.png" /> -->
-    <!-- <meta name="theme-color" content="#662B32">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#662B32">
-    -->
-
-    <!-- seo -->
-    <meta name="description" content="Some information about this project for SEO purposes" />
-    <meta name="keywords" content="add, some, tags, for, SEO, purposes" />
-
-    <!-- open graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="git.lennertderyck.be" />
-    <meta property="og:title" content="a new project" />
-    <!-- <meta property="og:image" content=""/> -->
-
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://use.typekit.net/jjp1abo.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
-        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-    <link rel="stylesheet" href="../static/css/main.css" />
-</head>
+<?php require_once '../config.php' ?>
+<?php require '../views/head.php' ?>
 
 <body data-theme="page" data-theme-sub="account-registration">
     <header class="header">
         <div class="header__wrapper container-fluid">
-            <a href="/" class="header__brand">
-                <img height="30px" src="../static/images/logo/logo_taptoe_monogram.svg" alt="" />
+            <a href="#" class="header__brand">
+                <img height="30px" src="static/images/logo/logo_taptoe_monogram.svg" alt="" />
             </a>
             <div class="header__search">
                 <form method="POST" action="./">
@@ -84,15 +52,15 @@
                                 </select>
                             </label>
                             <label class="input__group">
-                                <span>Naam van je vereniging*</span>
                                 <input type="text" placeholder="Haegepoorters Destelbergen">
+                                <span>Naam van je vereniging*</span>
                             </label>
                             <label class="input__group">
-                                <span>Adres van je vereniging*</span>
                                 <input type="text" placeholder="Bijlokestraat 18, 9070 Destelbergen">
+                                <span>Adres van je vereniging*</span>
                             </label>
                             <!-- <button class="btn" type="subit">Volgende</button> -->
-                            <input class="btn" type="submit" name="tenant" value="Volgende">
+                            <input class="btn" type="submit" name="register" value="Volgende">
                         </div>
                         <div data-sesam-target="registerFormOwner" data-sesam-parent="accountRegistration" class="sesam">
                             <label class="input__group">
@@ -108,15 +76,15 @@
                             </label>
                             <label class="input__group">
                                 <span>Naam</span>
-                                <small class="input__help">naam van je vereniging of naam van privé eigenaar</small>
                                 <input type="text" placeholder="Haegepoorters Destelbergen">
+                                <small class="input__help">naam van je vereniging of naam van privé eigenaar</small>
                             </label>
                             <label class="input__group">
                                 <span>Adres</span>
-                                <small class="input__help">adres van je vereniging<br> of persoonlijk adres van privé eigenaar</small>
                                 <input type="text" placeholder="Bijlokestraat 18, 9070 Destelbergen">
+                                <small class="input__help">adres van je vereniging<br> of persoonlijk adres van privé eigenaar</small>
                             </label>
-                            <input class="btn" type="submit" name="owner" value="Volgende">
+                            <input class="btn" type="submit" name="register" value="Volgende">
                         </div>
                         <div data-sesam-target="registerFormBoth" data-sesam-parent="accountRegistration" class="sesam">
                             <label class="input__group">
@@ -130,15 +98,15 @@
                                 </select>
                             </label>
                             <label class="input__group">
-                                <span>Naam van je vereniging*</span>
                                 <input type="text" placeholder="Haegepoorters Destelbergen">
+                                <span>Naam van je vereniging*</span>
                             </label>
                             <label class="input__group">
                                 <span>Adres van je vereniging*</span>
-                                <small class="input__help">Verhuurlocaties kan je later opgeven</small>
                                 <input type="text" placeholder="Bijlokestraat 18, 9070 Destelbergen">
+                                <small class="input__help">Verhuurlocaties kan je later opgeven</small>
                             </label>
-                            <input class="btn" type="submit" name="owner" value="Volgende">
+                            <input class="btn" type="submit" name="register" value="Volgende">
                         </div>
                     </form>
                 </div>
@@ -146,33 +114,16 @@
                     <h2 class="display-3 color--main font-weight--600 mb-4">
                         maak een account<br> om te beginnen
                     </h2>
-                    <p class="d-flex align-items-center">Heb je al een account? <a class="btn btn--grey ml-3" href="/account/login">aanmelden</a></p>
+                    <p class="d-flex align-items-center">Heb je al een account? <a class="btn btn--grey ml-3" href="account/login">aanmelden</a></p>
                 </div>
             </div>     
         </div>
     </main>
-    <footer class="footer">
-        <div class="footer__wrapper">
-            <div class="footer__logo">
-                <img height="70px" src="../static/images/logo/logo_taptoe_combo.svg" alt="">
-            </div>
-            <div class="container">
-                <nav class="footer__nav d-block mx-auto">
-                    <ul>
-                        <li><a href="#">Over Taptoe</a></li>
-                        <li><a href="#">Huur een locatie</a></li>
-                        <li><a href="#">Wordt verhuurder</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Privacy</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </footer>
+    <?php require '../views/footer.php' ?>
     <div data-label="topNav" class="topnav" data-sesam-target="topNav">
         <div class="topnav__ornament"></div>
     </div>
-    <script type="module" src="../core.js"></script>
+    <script type="module" src="static/modules/core.js"></script>
 </body>
 
 </html>

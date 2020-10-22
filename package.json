@@ -6,6 +6,7 @@
   "scripts": {
     "build:development": "node build development",
     "build:production": "node build production",
+    "sass": "sass --watch sass/main.scss static/css/main.css",
     "start": "node index.js"
   },
   "keywords": [],

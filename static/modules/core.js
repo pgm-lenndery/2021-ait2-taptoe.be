@@ -30,14 +30,5 @@ if ($listViewSelector) $listViewSelector.on('change')(({target}) => {
      })
 })
 
-// document.addEventListener('click', () => {
-     // eventCallback('*:not([data-sesam-trigger="topNav"]):not([data-label="topNav"])', () => {
-     //      sesam({
-     //           target: 'topNav',
-     //           action: 'hide'
-     //      })
-     // }, false)
-// })
-
 sesamCollapse.initialize();
 feather.replace();

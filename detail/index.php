@@ -1,44 +1,15 @@
-<?php require_once '../config.php' ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <base href="<?= $BASE_URI ?>">
-    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Parcel Boilerplate</title>
-
-    <!-- meta -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- <link rel="shortcut icon" type='image/x-icon' href="https://lennertderyck.be/assets/images/LOGO_LDR_ZWART.ico"/> -->
-    <!-- <link rel="icon" type="image/png" href="https://lennertderyck.be/assets/images/LOGO_LDR_ZWART.png" /> -->
-    <!-- <meta name="theme-color" content="#662B32">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#662B32">
-    -->
-
-    <!-- seo -->
-    <meta name="description" content="Some information about this project for SEO purposes" />
-    <meta name="keywords" content="add, some, tags, for, SEO, purposes" />
-
-    <!-- open graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="git.lennertderyck.be" />
-    <meta property="og:title" content="a new project" />
-    <!-- <meta property="og:image" content=""/> -->
-
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://use.typekit.net/jjp1abo.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
-        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-    <link rel="stylesheet" href="static/css/main.css" />
-</head>
+<?php require_once '../config.php' ?>
+<?php require '../views/head.php' ?>
+<?php 
+    $id = $_GET['id'] ?? '1';
+    require_once '../models/Location.php';
+    require_once '../models/Review.php';
+    $listing = Location::getByID($id);
+    $reviews = Review::getByLocationID($listing['location_id']);
+    $listings['reviews'] = $reviews;
+?>
 
 <body data-theme="default" data-theme-sub="listing-detail">
     <header class="header">
@@ -74,9 +45,9 @@
                         <div class="wrapper">
                             <div class="row">
                                 <div class="col-8">
-                                    <h4 class="listing-card__type">scouts</h4>
-                                    <h2 class="listing-card__name">Haegepoorters Destelbergen</h2>
-                                    <p class="listing-card__contact-detail"><a href="#">verhuur@haegepoorters.be</a> | <a href="#">haegepoorters.be</a></p>
+                                    <h4 class="listing-card__type"><?= orgConvert($listing['organisation']) ?></h4>
+                                    <h2 class="listing-card__name"><?= $listing['name'] ?></h2>
+                                    <p class="listing-card__contact-detail"><a href="mailto:<?= $listing['email'] ?>"><?= $listing['email'] ?></a> | <a href="https://<?= $listing['website'] ?>" target="_blank" rel="noopener"><?= $listing['website'] ?></a></p>
                                 </div>
                                 <div class="col d-flex flex-column align-items-end justify-content-center">
                                     <a class="btn btn--main listing__reserve mb-3" href="#">Dit lokaal reserveren</a>
@@ -117,36 +88,35 @@
                                 <div class="row">
                                     <div class="col text--user-input">
                                         <strong>Verantwoordelijke</strong><br>
-                                        <span>Lore Hessens</span>
+                                        <span><?= $listing['contact'] ?></span>
                                     </div>
                                     <div class="col text--user-input">
                                         <strong>Adres</strong><br>
-                                        <span>Bijlokestraat 18,<br> 9070 Destelbergen</span>
+                                        <span><?= $listing['address_street'] ?> <?= $listing['address_no'] ?>,<br> <?= $listing['address_zip'] ?> <?= $listing['address_city'] ?></span>
                                     </div>
                                 </div>
                             </div>
                             
                             <h5>score</h5>
                             <ul class="listing__properties">
-                                <li><span>Max. personen</span><span>50</span></li>
-                                <li><span>Kampvuur</span><span>Toegelaten</span></li>
-                                <li><span>Leidingsactiviteiten</span><span>Toegelaten</span></li>
+                                <li><span>Max. personen</span><span><?= $listing['prop_capacity'] ?></span></li>
+                                <li><span>Kampvuur</span><span><?= $listing['prop_campfire'] ?></span></li>
+                                <li><span>Leidingsactiviteiten</span><span><?= $listing['prop_leadersonly'] ?></span></li>
                             </ul>
                         </div>
                         <div class="col">
                             <h5>overzicht</h5>
                             <ul class="listing__properties">
-                                <li><span>Max. personen</span><span>50</span></li>
-                                <li><span>Kampvuur</span><span>toegelaten</span></li>
-                                <li><span>Leidingsactiviteiten</span><span>toegelaten</span></li>
-                                <li><span>Bestek & border</span><span>beschikbaar</span></li>
-                                <li><span>Potten & pannen</span><span>beschikbaar</span></li>
-                                <li><span>Douchekoppen</span><span>3</span></li>
-                                <li><span>Wc's</span><span>5</span></li>
-                                <li><span>Internet</span><span>2GB wifi/dag gratis</span></li>
-                                <li><span>Leeflokalen</span><span>3</span></li>
-                                <li><span>Slaapzalen</span><span>1</span></li>
-                                <li><span>Bedden</span><span>neen</span></li>
+                                <li><span>Max. personen</span><span><?= $listing['prop_capacity'] ?></span></li>
+                                <li><span>Kampvuur</span><span><?= boolPropConvert($listing['prop_campfire'], 'toegelaten', 'niet toegelaten') ?></span></li>
+                                <li><span>Leidingsactiviteiten</span><span><?= boolPropConvert($listing['prop_leadersonly'], 'toegelaten', 'niet toegelaten')?></span></li>
+                                <li><span>Keukengerei</span><span><?= boolPropConvert($listing['prop_cutlery'], 'beschikbaar', 'neen') ?></span></li>
+                                <li><span>Douchekoppen</span><span><?= $listing['prop_douches'] ?></span></li>
+                                <li><span>Wc's</span><span><?= $listing['prop_toilets'] ?></span></li>
+                                <li><span>Internet</span><span><?= boolPropConvert($listing['prop_internet'], $listing['prop_internet_comment'] ?? 'ja', 'neen') ?></span></li>
+                                <li><span>Leeflokalen</span><span><?= $listing['prop_livingspace'] ?></span></li>
+                                <li><span>Slaapzalen</span><span><?= $listing['prop_sleepspace'] ?></span></li>
+                                <li><span>Bedden</span><span><?= boolPropConvert($listing['prop_beds'], 'ja', 'neen') ?></span></li>
                             </ul>
                         </div>
                     </div>
@@ -154,6 +124,14 @@
             </div>
             <div class="listing__reviews">
                 <h5 class="text-center">reviews</h5>
+                <?php 
+                    foreach ($locations as $key => $item) {
+                        require '../views/listings/listing.php';
+                    }
+                ?>
+                <div class="listing__review">
+                    
+                </div>
             </div>
         </div>
     </main>

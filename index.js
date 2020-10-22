@@ -1,5 +1,11 @@
 const sass = require('node-sass');
 const fs = require('fs')
+const nodemon = require('nodemon');
+
+nodemon({
+    script: 'index.js',
+    ignore: ["static/css/main.css"],
+});
 
 const compileSass = () => {
     sass.render({
@@ -15,20 +21,6 @@ const compileSass = () => {
     });
 }
 
-compileSass();
-
-// bs.init({
-//     watch: true,
-//     server: './docs',
-//     notify: false
-// });
-
-// bs.watch('sass', (event, file) => {
-//     if (event === 'change') {
-//         bs.reload('*.css');
-//         compileSass();
-//     }
-// });
-
-// bs.watch("*.html").on("change", bs.reload);
-// bs.watch().on("change", bs.reload);
+nodemon.on('restart', function (files) {
+    compileSass();
+});
