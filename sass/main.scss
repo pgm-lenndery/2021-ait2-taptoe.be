@@ -14,6 +14,7 @@
 @import "./vendors/feather";
 @import "./vendors/mapbox";
 @import "./vendors/sesam";
+@import "./vendors/icons";
 
 @import "./components/sesam";
 @import "./components/forms";
@@ -28,8 +29,11 @@
 @import "./components/footer";
 @import "./components/input";
 @import "./components/topnav";
+@import "./components/reviews";
+@import "./components/nav";
 
 @import "./themes/default";
 @import "./themes/listing-detail";
 @import "./themes/account";
 @import "./themes/listings-overview";
+@import "./themes/register-location";

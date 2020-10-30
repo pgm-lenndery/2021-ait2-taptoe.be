@@ -12,30 +12,7 @@
 ?>
 
 <body data-theme="default" data-theme-sub="listing-detail">
-    <header class="header">
-        <div class="header__wrapper container-fluid">
-            <a href="#" class="header__brand">
-                <img height="30px" src="static/images/logo/logo_taptoe_monogram.svg" alt="" />
-            </a>
-            <div class="header__search">
-                <form method="POST" action="./">
-                    <div class="input-wrapper">
-                        <i data-feather="search"></i>
-                        <input type="text" name="search">
-                    </div>
-                </form>
-            </div>
-            <div class="header__user-detail ml-auto" data-sesam-trigger="topNav">
-                <button class="btn btn--variable">
-                    <span class="btn__text">Haegepoorters Destelbergen</span>
-                    <i data-feather="user"></i>
-                </button>
-            </div>
-            <!-- <div class="header__ornament">
-                <img src="../static/images/logo/logo_taptoe.svg" alt="" />
-            </div> -->
-        </div>
-    </header>
+    <?php require '../views/header.php' ?>
     <main>
         <div class="listing">
             <div class="listing__header mb-5">
@@ -79,7 +56,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="listing__details mb-5">
+            <div class="listing__details mb-6">
                 <div class="container">
                     <div class="row">
                         <div class="col">
@@ -97,40 +74,91 @@
                                 </div>
                             </div>
                             
-                            <h5>score</h5>
-                            <ul class="listing__properties">
-                                <li><span>Max. personen</span><span><?= $listing['prop_capacity'] ?></span></li>
-                                <li><span>Kampvuur</span><span><?= $listing['prop_campfire'] ?></span></li>
-                                <li><span>Leidingsactiviteiten</span><span><?= $listing['prop_leadersonly'] ?></span></li>
-                            </ul>
+                            <h5>details</h5>
+                            <div class="listing__detail text--user-input">
+                                <p>Wij beschikken over één groot terrein en één kleiner terreinen waartussen een bosje met gracht en onze lokalen liggen.</p>
+                                <p>Onze lokalen zijn van alles voorzien en zijn ruim genoeg voor om en bij de 50 man.</p>
+                                <p>Daarbij is onze scouts goed gelegen. Op nog geen 10 minuten ligt het (subtropisch) zwembad + park De Rozebroeken, enkele bakkers, een Aldi, Lidl, Colruyt en een grote Carrefour.</p>
+                            </div>
                         </div>
                         <div class="col">
                             <h5>overzicht</h5>
-                            <ul class="listing__properties">
-                                <li><span>Max. personen</span><span><?= $listing['prop_capacity'] ?></span></li>
-                                <li><span>Kampvuur</span><span><?= boolPropConvert($listing['prop_campfire'], 'toegelaten', 'niet toegelaten') ?></span></li>
-                                <li><span>Leidingsactiviteiten</span><span><?= boolPropConvert($listing['prop_leadersonly'], 'toegelaten', 'niet toegelaten')?></span></li>
-                                <li><span>Keukengerei</span><span><?= boolPropConvert($listing['prop_cutlery'], 'beschikbaar', 'neen') ?></span></li>
-                                <li><span>Douchekoppen</span><span><?= $listing['prop_douches'] ?></span></li>
-                                <li><span>Wc's</span><span><?= $listing['prop_toilets'] ?></span></li>
-                                <li><span>Internet</span><span><?= boolPropConvert($listing['prop_internet'], $listing['prop_internet_comment'] ?? 'ja', 'neen') ?></span></li>
-                                <li><span>Leeflokalen</span><span><?= $listing['prop_livingspace'] ?></span></li>
-                                <li><span>Slaapzalen</span><span><?= $listing['prop_sleepspace'] ?></span></li>
-                                <li><span>Bedden</span><span><?= boolPropConvert($listing['prop_beds'], 'ja', 'neen') ?></span></li>
-                            </ul>
+                            <div class="flex-grid flex-grid--md-2i">
+                                <ul class="listing__properties flex-grid__wrapper">
+                                    <li class="flex-grid__item">
+                                        <i class="uil uil-users-alt"></i>
+                                        <span><?= $listing['prop_capacity'] ?> personen</span>
+                                    </li>
+                                    <li class="flex-grid__item <?= boolPropConvert($listing['prop_campfire'])?>">
+                                        <i class="uil uil-fire"></i>
+                                        <span>Kampvuur</span>
+                                    </li>
+                                    <li class="flex-grid__item <?= boolPropConvert($listing['prop_leadersonly'])?>">
+                                        <i class="uil uil-user-md"></i>
+                                        <span>Leidingsactiviteiten</span>
+                                        <!-- <span></span> -->
+                                    </li>
+                                    <li class="flex-grid__item <?= boolPropConvert($listing['prop_cutlery']) ?>">
+                                        <i class="uil uil-utensils"></i>
+                                        <span>Keukengerei</span>
+                                    </li>
+                                    <li class="flex-grid__item <?= boolPropConvert($listing['prop_douches']) ?>">
+                                        <i class="uil uil-bath"></i>
+                                        <span><?= $listing['prop_douches'] ?> douches</span>
+                                    </li>
+                                    <li class="flex-grid__item">
+                                        <i class="uil uil-toilet-paper"></i>
+                                        <span><?= $listing['prop_toilets'] ?> wc's</span>
+                                    </li>
+                                    <li class="flex-grid__item <?= boolPropConvert($listing['prop_internet']) ?>">
+                                        <i class="uil uil-wifi"></i>
+                                        <span>Internet</span>
+                                    </li>
+                                    <li class="flex-grid__item">
+                                        <i class="uil uil-house-user"></i>
+                                        <span><?= $listing['prop_livingspace'] ?> lokalen</span>
+                                    </li>
+                                    <li class="flex-grid__item <?= boolPropConvert($listing['prop_beds']) ?>">
+                                       <i class="uil uil-bed"></i>
+                                       <span>bedden</span>
+                                        <!-- <?= boolPropConvert($listing['prop_beds']) ?></span> -->
+                                    </li>
+                                    <li class="flex-grid__item">
+                                       <i class="uil uil-coronavirus"></i>
+                                       <span>Verhuur tijdens pandemie</span>
+                                        <!-- <?= boolPropConvert($listing['prop_corona']) ?></span> -->
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="container mb-6">
+                <div class="listing__pics">
+                    <div class="listing__pic listing__pic--main"><img src="https://source.unsplash.com/800x600/?cabin" alt=""></div>
+                    <div class="listing__pic"><img src="https://source.unsplash.com/800x600/?nature" alt=""></div>
+                    <div class="listing__pic"><img src="https://source.unsplash.com/800x600/?wood" alt=""></div>
+                    <div class="listing__pic"><img src="https://source.unsplash.com/800x600/?water" alt=""></div>
+                    <div class="listing__pic"><img src="https://source.unsplash.com/800x600/?forest" alt=""></div>
+                </div>
+            </div>
             <div class="listing__reviews">
-                <h5 class="text-center">reviews</h5>
-                <?php 
-                    foreach ($locations as $key => $item) {
-                        require '../views/listings/listing.php';
-                    }
-                ?>
-                <div class="listing__review">
-                    
+                <div class="container">
+                    <h5 class="text-center mb-5">laatste reviews</h5>
+                    <?php 
+                        $amt = count($listings['reviews']);
+                        if ($amt == 0) {
+                            echo 'be the first to write a review';
+                        }
+                    ?>
+                    <div class="salvattore salvattore__grid salvattore__grid--1c salvattore__grid--lg-2c salvattore__grid--xl-3c" data-columns> 
+                        <?php 
+                            foreach ($listings['reviews'] as $key => $item) {
+                                require '../views/listings/review.php';
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,6 +168,7 @@
         <div class="topnav__ornament"></div>
     </div>
     <script type="module" src="static/modules/core.js"></script>
+    <script src='https://unpkg.com/salvattore@1.0.9/dist/salvattore.js'></script>
 </body>
 
 </html>

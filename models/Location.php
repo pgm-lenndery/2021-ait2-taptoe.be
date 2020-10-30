@@ -23,4 +23,18 @@
         $result = $pdo_statement->fetchAll();
         return $result[0];
     }
+    
+    public static function getByOwner($id) {
+        global $db;
+        
+        $sql = "SELECT * 
+        FROM `locations` 
+        INNER JOIN `users` ON locations.owner = `users`.`user_id`
+        WHERE `owner` = :id";
+        
+        $pdo_statement = $db->prepare($sql);
+        $pdo_statement->execute([':id' => $id]);
+        $result = $pdo_statement->fetchAll();
+        return $result;
+    }
 }

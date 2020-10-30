@@ -14,11 +14,16 @@
             font-family: $fontSub;
         }
 
-        .feather {
-            --size: 20px;
-            width: var(--size);
-            height: var(--size);
+        // .feather {
+        //     --size: 20px;
+        //     width: var(--size);
+        //     height: var(--size);
+        //     margin-left: .6rem;
+        // }
+        
+        i.uil {
             margin-left: .6rem;
+            font-size: 1.5rem;
         }
     }
     

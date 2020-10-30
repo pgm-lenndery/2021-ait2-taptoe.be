@@ -1,0 +1,8 @@
+.card {
+    padding: 2rem;
+    background: $grey300;
+    border: none;
+    border-radius: $bdRadius;
+    
+    &, * {color: $grey800;}
+}

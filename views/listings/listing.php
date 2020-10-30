@@ -1,13 +1,13 @@
 <a href="<?= $BASE_URI ?>detail?id=<?= $item['location_id'] ?>" class="listing listing-card listing-card--inlist mb-3">
     <div class="listing__org-img">
         <div class="listing-card__org-img">
-            <img width="100%" src="<?= $CLOUDINARY_BASE_URI.$item['thumb'] ?>" alt="">
+            <img width="100%" src="<?= $CLOUDINARY_BASE_URI ?>users/<?= $item['thumb'] ?>" alt="">
         </div>
     </div>
     
     <div class="listing__about">
         <small class="listing-card__type">scouts</small>
-        <h5 class="listing-card__name"><?= $item['name'] ?></h5>
+        <h5 class="listing-card__name"><?= $item['location_name'] ?></h5>
         <p class="listing__capacity"><?= $item['prop_capacity'] ?> personen</p>
     </div>
     <div class="listings__details">

@@ -4,30 +4,7 @@
     <?php require './views/head.php' ?>
 
     <body data-theme="default">
-        <header class="header">
-            <div class="header__wrapper container-fluid">
-                <div class="header__brand">
-                    <img height="30px" src="static/images/logo/logo_taptoe_monogram.svg" alt="" />
-                </div>
-                <div class="header__search">
-                    <form data-label="locationSearch">
-                        <div class="input-wrapper">
-                            <i data-feather="search"></i>
-                            <input type="text" name="search">
-                        </div>
-                    </form>
-                </div>
-                <div class="header__user-detail ml-auto" data-sesam-trigger="topNav">
-                    <button class="btn btn--variable">
-                        <span class="btn__text">Haegepoorters Destelbergen</span>
-                        <i data-feather="user"></i>
-                    </button>
-                </div>
-                <!-- <div class="header__ornament">
-                    <img src="../static/images/logo/logo_taptoe.svg" alt="" />
-                </div> -->
-            </div>
-        </header>
+        <?php require './views/header.php' ?>
         <main>
             <div class="mapbox-wrapper">
                 <div id="mapbox" class="mapbox"></div>
@@ -72,9 +49,9 @@
                 </h2>
                 <div data-label="accountIntroduction" class="d-flex align-items-center w-fit mt-6 mx-auto">
                     <span>begin hier</span>
-                    <a href="/account?type=tenant" class="btn btn--main">als huurder</a>
+                    <a href="account?type=tenant" class="btn btn--main">als huurder</a>
                     <span>of</span>
-                    <a href="/account?type=owner" class="btn btn--main">als verhuurder</a>
+                    <a href="account?type=owner" class="btn btn--main">als verhuurder</a>
                 </div>
             </div>
         </main>

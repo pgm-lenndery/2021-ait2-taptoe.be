@@ -1,0 +1,46 @@
+.nav {
+    width: fit-content;
+    background-color: $grey400;
+    border-radius: $bdRadius;
+    overflow: hidden;
+    
+    ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        
+        li {
+            position: relative;
+            color: $grey800;
+            text-transform: lowercase;
+            
+            &::after {
+                --w: 2px;
+                content: "";
+                position: absolute;
+                top: 20%;
+                right: calc((var(--w)/2) * -1);
+                bottom: 20%;
+                width: var(--w);
+                background-color: $grey550;
+                z-index: 1;
+            }
+            
+            &:last-child::after {display: none;}
+            
+            a {
+                display: block;
+                padding: 1rem 1.8rem;
+                
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+                
+                &.anker--current {
+                    background-color: $grey500;
+                }
+            }
+        }
+    }
+}

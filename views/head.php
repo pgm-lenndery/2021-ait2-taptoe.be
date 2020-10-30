@@ -26,10 +26,12 @@
     <!-- <meta property="og:image" content=""/> -->
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://use.typekit.net/jjp1abo.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
         integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/cutleryjs@3.5.5/dist/css/index.min.css" />
     <link rel="stylesheet" href="static/css/main.css" />
 </head>

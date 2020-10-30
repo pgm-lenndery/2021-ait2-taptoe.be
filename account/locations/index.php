@@ -7,7 +7,8 @@
 <body data-theme="page" data-theme-sub="account-registration">
     <?php require '../../views/header.php' ?>
     <main>
-        <?php require '../../views/account/login.php' ?>
+        <?php require '../../views/account/menu.php' ?>
+        <?php require '../../views/account/listings.php' ?>
     </main>
     <?php require '../../views/footer.php' ?>
     <div data-label="topNav" class="topnav" data-sesam-target="topNav">

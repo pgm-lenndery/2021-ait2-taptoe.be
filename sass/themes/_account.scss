@@ -1,58 +1,58 @@
-[data-form="accountRegistration"], [data-form="accountLogin"] {
-    width: fit-content;
-    width: 100%;
-    max-width: 375px;
-    padding: 2rem;
-    background-color: $blue600;
-    border-radius: $bdRadius*2;
+// [data-form="accountRegistration"], [data-form="accountLogin"] {
+//     width: fit-content;
+//     width: 100%;
+//     max-width: 375px;
+//     padding: 2rem;
+//     background-color: $blue600;
+//     border-radius: $bdRadius*2;
     
-    * {color: white;}
+//     * {color: white;}
     
-    label {
-        input, select {
-            padding: .8rem 1rem;
-            background-color: $blue500;
-        }
-    }
+//     label {
+//         input, select {
+//             padding: .8rem 1rem;
+//             background-color: $blue500;
+//         }
+//     }
     
-    .input__group {
-        position: relative;
+//     .input__group {
+//         position: relative;
         
-        input {
-            color: rgba(255, 255, 255, 0.835);
+//         input {
+//             color: rgba(255, 255, 255, 0.835);
             
-            &::placeholder {
-                opacity: 0;
-            }
+//             &::placeholder {
+//                 opacity: 0;
+//             }
             
-            &:not(:placeholder-shown) + span {
-                top: -2px;
-                transform: translateY(0px);
-            }
+//             &:not(:placeholder-shown) + span, &:focus + span, &:focus-within + span {
+//                 top: -2px;
+//                 transform: translateY(0px);
+//             }
             
-            & + span {
-                position: absolute;
-                top: 50%;
-                left: 1rem;
-                transform: translateY(-23%);
-                display: block;
-            }
-        }
-    }
+//             & + span {
+//                 position: absolute;
+//                 top: 50%;
+//                 left: 1rem;
+//                 transform: translateY(-23%);
+//                 display: block;
+//             }
+//         }
+//     }
     
-    .input__choice span{
-        background-color: $blue500;
-        font-family: $fontMain;
-        font-size: 1.2rem;
-        font-weight: 600;
-    }
+//     .input__choice span{
+//         background-color: $blue500;
+//         font-family: $fontMain;
+//         font-size: 1.2rem;
+//         font-weight: 600;
+//     }
     
-    .btn[type="submit"] {
-        background-color: $colorMain;
-        color: white;
+//     .btn[type="submit"] {
+//         background-color: $colorMain;
+//         color: white;
         
-        &:focus {
-            box-shadow: 0 0 0 0.25rem #44a08c7a;
-        }
-    }
-}
+//         &:focus {
+//             box-shadow: 0 0 0 0.25rem #44a08c7a;
+//         }
+//     }
+// }

@@ -3,6 +3,8 @@ import 'https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js';
 import { mapboxInit } from './mapbox.js';
 import { pathCallback } from './routing.js'
 import { sesamCollapse, sesam } from 'https://unpkg.com/sesam-collapse';
+import {checkCurrentAnkers} from './utils.js';
+// import { salvattoreInit } from './ui.js';
 
 pathCallback('/', 'AIT%202/2021-ait2-taptoe.be')((path) => {
      mapboxInit();
@@ -13,9 +15,11 @@ pathCallback('/detail', 'AIT%202/2021-ait2-taptoe.be')((path) => {
 pathCallback('/listings', 'AIT%202/2021-ait2-taptoe.be')((path) => {
      mapboxInit();
 });
+pathCallback('/account/locations', 'AIT%202/2021-ait2-taptoe.be')((path) => {
+     mapboxInit(false);
+});
 
 const $listViewSelector = node('[data-label="listingsView"] select');
-
 if ($listViewSelector) $listViewSelector.on('change')(({target}) => {
      const value = target.value;
      
@@ -30,5 +34,7 @@ if ($listViewSelector) $listViewSelector.on('change')(({target}) => {
      })
 })
 
+// salvattoreInit();
+checkCurrentAnkers();
 sesamCollapse.initialize();
 feather.replace();

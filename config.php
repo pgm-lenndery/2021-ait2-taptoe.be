@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION["firstname"] = 'Dieter';
 
 $BASE_URI = '/AIT 2/2021-ait2-taptoe.be/';
 $CLOUDINARY_BASE_URI = 'https://res.cloudinary.com/dd8fxudsh/image/upload/v1603294496/taptoe.be/';
@@ -22,7 +24,7 @@ function orgConvert($name) {
     )[$name];
 }
 
-function boolPropConvert($value, $true, $false) {
-    if ($value == '1' ?? $value == 1) return $true;
-    if ($value == '0' ?? $value == 0) return $false;
+function boolPropConvert($value) {
+    // if ($value == '1' ?? $value == 1) return true;
+    if ($value == '0' ?? $value == 0) return 'listing__prop--na';
 }

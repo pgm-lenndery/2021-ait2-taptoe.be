@@ -1,0 +1,49 @@
+.review {    
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    // background-color: $grey200;
+    background-color: white;
+    border-radius: $bdRadius $bdRadius 0 $bdRadius;
+    
+    &::after {        
+        position: absolute;
+        left: 100%;
+        bottom: 0px;
+        content: " ";
+        width: 10px;
+        height: 17px;
+        /* background-color: red; */
+        background-image: url(../images/message_stub.svg);
+        background-repeat: no-repeat;
+    }
+    
+    &__content {
+        font-family: $fontSub;
+        font-weight: normal;
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.6rem;
+        color: $grey600
+    }
+    
+    &__sender {
+        // text-align: right;
+        
+        &-img {
+            margin-right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            object-fit: cover;
+        }
+        
+        &-name, &-org {
+            display: block;
+        }
+        
+        &-name {
+            font-family: $fontSub;
+        }
+    }
+}

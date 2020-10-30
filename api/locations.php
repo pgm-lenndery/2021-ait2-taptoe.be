@@ -1,4 +1,5 @@
 <?php 
+header('Content-Type: application/json');
 $name = $_GET['name'] ?? '';
 $zip = $_GET['zip'] ?? '';
 require_once '../config.php';
@@ -12,7 +13,7 @@ require_once '../config.php';
 $sql = "SELECT * 
         FROM `locations` 
         INNER JOIN `users` ON locations.owner = `users`.`user_id`
-        WHERE `locations`.`name` 
+        WHERE `locations`.`location_name` 
         LIKE :name 
         AND `address_zip` LIKE :zip";
         
@@ -29,4 +30,3 @@ $pdo_statement->execute([
 $result = $pdo_statement->fetchAll();
 
 print_r(json_encode($result));
-header('Content-Type: application/json');

@@ -30,12 +30,12 @@
     }
     
     &__group {
-        margin-bottom: 1.6rem;
+        margin-bottom: 1rem;
         width: 100%;
         
         &:last-child {margin-bottom: 0;}
         
-        input, select {
+        input, select, textarea {
             width: 100%;
             font-family: $fontSub;
             margin-top: .8rem;
@@ -64,9 +64,163 @@
     }
     
     .btn[type="submit"] {
+        margin-top: 1.2rem;
         padding: .6rem 1rem;
         background-color: $grey300;
         color: $grey700;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.2rem;
+        text-transform: lowercase;
+        border-radius: $bdRadius;
+        width: 100%;
+    }
+}
+
+[data-form] {
+    width: fit-content;
+    width: 100%;
+    padding: 2rem;
+    background-color: $blue600;
+    border-radius: $bdRadius*2;
+    
+    * {color: white;}
+    
+    .mapbox {
+        border-radius: $bdRadius;
+    }
+    
+    label {
+        span {
+            text-transform: lowercase;
+            user-select: none;
+            
+            & + input, & + select, & + textarea {
+                margin-top: .6rem;
+            }
+        }
+        
+        input, select, textarea {
+            padding: .8rem 1rem;
+            background-color: $blue500;
+            
+            &, &:focus, &:focus-within {
+                border: none;
+                outline: none;
+                box-shadow: none;
+                border-radius: $bdRadius;
+            }
+        }
+    }
+    
+    .input__group {
+        position: relative;
+        
+        &.inline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            // padding: 1rem 1.5rem 1rem 1rem;
+            padding: 0.8rem 1rem;
+            background-color: $blue500;
+            border-radius: $bdRadius;
+            
+            span {
+                display: flex;
+                align-items: center;
+                width: fit-content;
+                margin-right: 2rem;
+                white-space: nowrap;
+                line-height: 1.3rem;
+                
+                i.uil {
+                    margin-right: 0.6rem;
+                    font-size: 1.2rem;
+                }
+            }
+            
+            select {
+                width: fit-content;
+                margin-top: 0;
+                padding: 0px;
+                background: transparent;
+                border-radius: 0px;
+                color: rgba(255, 255, 255, 0.835);
+            }
+            
+            input {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                border-radius: 0px;
+                text-align: right;
+                
+                &::placeholder {
+                    opacity: 1 !important;
+                }
+            }
+        }
+        
+        input, textarea {
+            // color: rgba(54, 38, 38, 0.835);
+            color: rgba(255, 255, 255, 0.835);
+            
+            &::placeholder {
+                opacity: 0;
+            }
+            
+            &:not(:placeholder-shown) + span, &:focus + span, &:focus-within + span {
+                top: -2px;
+                transform: translateY(0px);
+            }
+            
+            & + span {
+                position: absolute;
+                top: 1.7rem;
+                left: 1rem;
+                transform: translateY(-23%);
+                display: block;
+            }
+        }
+        
+        textarea {
+            & + span {
+                top: 1.4rem;
+            }
+            
+            &:not(:placeholder-shown) + span, &:focus + span, &:focus-within + span {
+                top: -2px;
+            }
+        }
+        
+        & + hr {
+            margin-bottom: 2rem
+        }
+    }
+    
+    * > .input__group:first-child:not(.inline) { 
+        margin-top: -.8rem; 
+        
+        &.first--ignore {
+            margin-top: inherit;
+        }
+    }
+    
+    .input__choice span{
+        background-color: $blue500;
+        font-family: $fontMain;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    
+    .btn[type="submit"] {
+        margin-top: 1.2rem;
+        padding: .6rem 1rem;
+        // background-color: $grey300;
+        // color: $grey700;
+        background-color: $colorMain;
+        color: white;
         text-align: center;
         font-weight: 500;
         font-size: 1.2rem;

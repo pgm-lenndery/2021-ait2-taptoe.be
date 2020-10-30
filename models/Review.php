@@ -28,6 +28,7 @@
         
         $sql = "SELECT * 
         FROM `reviews` 
+        INNER JOIN `users` ON reviews.user_id = `users`.`user_id`
         WHERE `location_id` = :id";
         
         $pdo_statement = $db->prepare($sql);

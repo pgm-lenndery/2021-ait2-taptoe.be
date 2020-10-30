@@ -3,7 +3,7 @@ import {
     updateClipboard,
     Element,
     Api
-} from 'https://unpkg.com/cutleryjs@3.5.5/dist/js/index.js';
+} from './index.js';
 import dataFinal from '../../data/data-final.js';
 import {pathCallback} from '../../static/modules/routing.js';
 import {orgConvert} from '../../static/modules/data.js'
@@ -21,7 +21,7 @@ pathCallback('/detail')(() => {
 mapboxgl.accessToken = 'pk.eyJ1IjoibGVubmVydGRlcnljayIsImEiOiJjazN1N3ViZTMwOWRrM2VwaXpvY3I1a2MzIn0.UJjqfOdCRHzOPdP2j7lDmg';
 
 let mapHoverPosition = 0;
-const mapboxInit = async () => {    
+const mapboxInit = async (addMarkers = true) => {    
     const map = new mapboxgl.Map({
         container: 'mapbox',
         // style: 'mapbox://styles/mapbox/streets-v11',
@@ -39,10 +39,13 @@ const mapboxInit = async () => {
         // node('[data-label="mapInfo"]').innerHTML = `lng: ${lng.toFixed(2)}, lat: ${lat.toFixed(2)}`;
     });
     
-    const locationData = await new Api('http://localhost/AIT%202/2021-ait2-taptoe.be/api/locations.php').JSON();
-    console.log(locationData);
+    if (addMarkers) {
+        const locationData = await new Api('http://localhost/AIT%202/2021-ait2-taptoe.be/api/locations.php').JSON();
+        console.log(locationData);
+        
+        (await locationData).setMarkersFromArray(map);
+    }
     
-    (await locationData).setMarkersFromArray(map);
 }
 
 const getLocations = (data) => {
@@ -56,7 +59,7 @@ Array.prototype.setMarkersFromArray = function(box) {
         const popup = new mapboxgl.Popup({ offset: -13 }).setHTML(`
             <a class="listing-card" href="detail/?id=${org.location_id}">
                 <small class="d-block listing__type">${orgConvert(org.organisation) || 'onbekend'}</small>
-                <h5 class="listing__name">${org.name}</h5>
+                <h5 class="listing__name">${org.location_name}</h5>
                 <p class="listing__location">${org.address_city}</p>
             </a>
             <div class="mapbox__marker"></div>

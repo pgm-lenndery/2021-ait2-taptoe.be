@@ -269,15 +269,13 @@ img {
   pointer-events: none;
 }
 
-iframe, iframe:focus, iframe:focus-within, canvas, canvas:focus, canvas:focus-within {
-  outline: none;
+a, a:hover {
+  text-decoration: none;
+  color: initial;
 }
 
-input, input:focus, input:focus-within, select, select:focus, select:focus-within {
-  border: none;
+iframe, iframe:focus, iframe:focus-within, canvas, canvas:focus, canvas:focus-within {
   outline: none;
-  box-shadow: none;
-  border-radius: 10px;
 }
 
 * {
@@ -357,6 +355,13 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   display: none;
 }
 
+i.uil {
+  font-size: 1.5rem;
+}
+i.uil.icon--large {
+  font-size: 2rem;
+}
+
 .input__choice {
   display: flex;
   justify-content: center;
@@ -388,18 +393,18 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   opacity: 1;
 }
 .input__group {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1rem;
   width: 100%;
 }
 .input__group:last-child {
   margin-bottom: 0;
 }
-.input__group input, .input__group select {
+.input__group input, .input__group select, .input__group textarea {
   width: 100%;
   font-family: parisplus-std, sans-serif;
   margin-top: 0.8rem;
 }
-.input__group input::placeholder, .input__group select::placeholder {
+.input__group input::placeholder, .input__group select::placeholder, .input__group textarea::placeholder {
   color: white;
   opacity: 0.4;
 }
@@ -417,9 +422,132 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   text-transform: lowercase;
 }
 .input .btn[type=submit] {
+  margin-top: 1.2rem;
   padding: 0.6rem 1rem;
   background-color: #FAFAFA;
   color: #767676;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+  border-radius: 10px;
+  width: 100%;
+}
+
+[data-form] {
+  width: fit-content;
+  width: 100%;
+  padding: 2rem;
+  background-color: #12255E;
+  border-radius: 20px;
+}
+[data-form] * {
+  color: white;
+}
+[data-form] .mapbox {
+  border-radius: 10px;
+}
+[data-form] label span {
+  text-transform: lowercase;
+  user-select: none;
+}
+[data-form] label span + input, [data-form] label span + select, [data-form] label span + textarea {
+  margin-top: 0.6rem;
+}
+[data-form] label input, [data-form] label select, [data-form] label textarea {
+  padding: 0.8rem 1rem;
+  background-color: #253484;
+}
+[data-form] label input, [data-form] label input:focus, [data-form] label input:focus-within, [data-form] label select, [data-form] label select:focus, [data-form] label select:focus-within, [data-form] label textarea, [data-form] label textarea:focus, [data-form] label textarea:focus-within {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 10px;
+}
+[data-form] .input__group {
+  position: relative;
+}
+[data-form] .input__group.inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  background-color: #253484;
+  border-radius: 10px;
+}
+[data-form] .input__group.inline span {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-right: 2rem;
+  white-space: nowrap;
+  line-height: 1.3rem;
+}
+[data-form] .input__group.inline span i.uil {
+  margin-right: 0.6rem;
+  font-size: 1.2rem;
+}
+[data-form] .input__group.inline select {
+  width: fit-content;
+  margin-top: 0;
+  padding: 0px;
+  background: transparent;
+  border-radius: 0px;
+  color: rgba(255, 255, 255, 0.835);
+}
+[data-form] .input__group.inline input {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0px;
+  text-align: right;
+}
+[data-form] .input__group.inline input::placeholder {
+  opacity: 1 !important;
+}
+[data-form] .input__group input, [data-form] .input__group textarea {
+  color: rgba(255, 255, 255, 0.835);
+}
+[data-form] .input__group input::placeholder, [data-form] .input__group textarea::placeholder {
+  opacity: 0;
+}
+[data-form] .input__group input:not(:placeholder-shown) + span, [data-form] .input__group input:focus + span, [data-form] .input__group input:focus-within + span, [data-form] .input__group textarea:not(:placeholder-shown) + span, [data-form] .input__group textarea:focus + span, [data-form] .input__group textarea:focus-within + span {
+  top: -2px;
+  transform: translateY(0px);
+}
+[data-form] .input__group input + span, [data-form] .input__group textarea + span {
+  position: absolute;
+  top: 1.7rem;
+  left: 1rem;
+  transform: translateY(-23%);
+  display: block;
+}
+[data-form] .input__group textarea + span {
+  top: 1.4rem;
+}
+[data-form] .input__group textarea:not(:placeholder-shown) + span, [data-form] .input__group textarea:focus + span, [data-form] .input__group textarea:focus-within + span {
+  top: -2px;
+}
+[data-form] .input__group + hr {
+  margin-bottom: 2rem;
+}
+[data-form] * > .input__group:first-child:not(.inline) {
+  margin-top: -0.8rem;
+}
+[data-form] * > .input__group:first-child:not(.inline).first--ignore {
+  margin-top: inherit;
+}
+[data-form] .input__choice span {
+  background-color: #253484;
+  font-family: stratos, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+[data-form] .btn[type=submit] {
+  margin-top: 1.2rem;
+  padding: 0.6rem 1rem;
+  background-color: #44A08C;
+  color: white;
   text-align: center;
   font-weight: 500;
   font-size: 1.2rem;
@@ -443,11 +571,9 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
 .btn--variable * {
   font-family: parisplus-std, sans-serif;
 }
-.btn--variable .feather {
-  --size: 20px;
-  width: var(--size);
-  height: var(--size);
+.btn--variable i.uil {
   margin-left: 0.6rem;
+  font-size: 1.5rem;
 }
 .btn--main {
   font-size: 1.3rem;
@@ -468,6 +594,16 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
 }
 [data-label=accountIntroduction] .btn {
   margin: 0 1rem;
+}
+
+.card {
+  padding: 2rem;
+  background: #FAFAFA;
+  border: none;
+  border-radius: 10px;
+}
+.card, .card * {
+  color: #5c5c5c;
 }
 
 .header {
@@ -610,6 +746,88 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   transform: translate(50%, -50%);
 }
 
+.review {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px 10px 0 10px;
+}
+.review::after {
+  position: absolute;
+  left: 100%;
+  bottom: 0px;
+  content: " ";
+  width: 10px;
+  height: 17px;
+  /* background-color: red; */
+  background-image: url(../images/message_stub.svg);
+  background-repeat: no-repeat;
+}
+.review__content {
+  font-family: parisplus-std, sans-serif;
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.6rem;
+  color: #868686;
+}
+.review__sender-img {
+  margin-right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.review__sender-name, .review__sender-org {
+  display: block;
+}
+.review__sender-name {
+  font-family: parisplus-std, sans-serif;
+}
+
+.nav {
+  width: fit-content;
+  background-color: #EBEBEB;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav ul li {
+  position: relative;
+  color: #5c5c5c;
+  text-transform: lowercase;
+}
+.nav ul li::after {
+  --w: 2px;
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: calc((var(--w)/2) * -1);
+  bottom: 20%;
+  width: var(--w);
+  background-color: #bbbbbb;
+  z-index: 1;
+}
+.nav ul li:last-child::after {
+  display: none;
+}
+.nav ul li a {
+  display: block;
+  padding: 1rem 1.8rem;
+}
+.nav ul li a:hover {
+  background-color: #e0e0e0;
+}
+.nav ul li a.anker--current {
+  background-color: #D0D0D0;
+}
+
 [data-theme=page] header {
   border-bottom: 2px solid #D0D0D0;
   margin-bottom: 5rem;
@@ -709,6 +927,43 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   text-decoration: none;
 }
 
+.listing__details h5 {
+  color: #868686;
+}
+.listing__details * {
+  color: #5c5c5c;
+}
+.listing__details .row {
+  --bs-gutter-x: 6rem;
+}
+.listing__details .container {
+  max-width: 1120px;
+}
+.listing__pics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0.6rem;
+  grid-row-gap: 0.6rem;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.listing__pics .listing__pic {
+  min-height: 200px;
+  background-color: #EBEBEB;
+  font-size: 30px;
+  cursor: pointer;
+}
+.listing__pics .listing__pic:hover {
+  filter: brightness(0.8);
+}
+.listing__pics .listing__pic.listing__pic--main {
+  grid-area: 1/1/3/3;
+}
+.listing__pics .listing__pic img {
+  width: 100%;
+  height: 100%;
+}
 .listing__properties {
   margin: 0;
   padding: 0;
@@ -718,22 +973,29 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
 }
 .listing__properties li {
   display: flex;
-  justify-content: space-between;
-  padding: 0.8rem 0;
+  align-items: center;
+  padding: 0.4rem 0;
   list-style: none;
   color: #868686;
-  border-bottom: 1px solid #D0D0D0;
+}
+.listing__properties li.flex-grid__item {
+  margin-bottom: 0rem;
+}
+.listing__properties li.listing__prop--na {
+  text-decoration: line-through;
+  text-decoration-color: #5c5c5c;
+  text-decoration-thickness: 2px;
+}
+.listing__properties li.listing__prop--na .uil {
+  color: #D0D0D0;
+}
+.listing__properties li .uil {
+  margin-right: 0.6rem;
 }
 .listing__reserve {
   width: fit-content;
   font-family: parisplus-std, sans-serif;
   font-size: 1.2rem;
-}
-.listing__details .row {
-  --bs-gutter-x: 6rem;
-}
-.listing__details .container {
-  max-width: 1120px;
 }
 .listing__score-summ ul {
   display: flex;
@@ -770,6 +1032,11 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
 .listing__score-summ .score__star img {
   margin-left: 0.3rem;
 }
+.listing__reviews {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  background-color: whitesmoke;
+}
 
 [data-theme-sub=listing-detail] .listing__header {
   position: relative;
@@ -804,54 +1071,8 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
 [data-theme-sub=listing-detail] .mapbox .mapboxgl-ctrl-group {
   display: none;
 }
-
-[data-form=accountRegistration], [data-form=accountLogin] {
-  width: fit-content;
-  width: 100%;
-  max-width: 375px;
-  padding: 2rem;
-  background-color: #12255E;
-  border-radius: 20px;
-}
-[data-form=accountRegistration] *, [data-form=accountLogin] * {
-  color: white;
-}
-[data-form=accountRegistration] label input, [data-form=accountRegistration] label select, [data-form=accountLogin] label input, [data-form=accountLogin] label select {
-  padding: 0.8rem 1rem;
-  background-color: #253484;
-}
-[data-form=accountRegistration] .input__group, [data-form=accountLogin] .input__group {
-  position: relative;
-}
-[data-form=accountRegistration] .input__group input, [data-form=accountLogin] .input__group input {
-  color: rgba(255, 255, 255, 0.835);
-}
-[data-form=accountRegistration] .input__group input::placeholder, [data-form=accountLogin] .input__group input::placeholder {
-  opacity: 0;
-}
-[data-form=accountRegistration] .input__group input:not(:placeholder-shown) + span, [data-form=accountLogin] .input__group input:not(:placeholder-shown) + span {
-  top: -2px;
-  transform: translateY(0px);
-}
-[data-form=accountRegistration] .input__group input + span, [data-form=accountLogin] .input__group input + span {
-  position: absolute;
-  top: 50%;
-  left: 1rem;
-  transform: translateY(-23%);
-  display: block;
-}
-[data-form=accountRegistration] .input__choice span, [data-form=accountLogin] .input__choice span {
-  background-color: #253484;
-  font-family: stratos, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-[data-form=accountRegistration] .btn[type=submit], [data-form=accountLogin] .btn[type=submit] {
-  background-color: #44A08C;
-  color: white;
-}
-[data-form=accountRegistration] .btn[type=submit]:focus, [data-form=accountLogin] .btn[type=submit]:focus {
-  box-shadow: 0 0 0 0.25rem #44a08c7a;
+[data-theme-sub=listing-detail] .footer .footer__wrapper {
+  margin-top: 0px;
 }
 
 [data-label=listingsList] .listing-card {
