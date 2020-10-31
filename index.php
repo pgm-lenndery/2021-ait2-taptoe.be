@@ -57,10 +57,6 @@
         </main>
         <?php require './views/footer.php' ?>
         <script type="module" src="static/modules/core.js"></script>
-        
-        <div data-label="topNav" class="topnav" data-sesam-target="topNav">
-            <div class="topnav__ornament"></div>
-        </div>
     </body>
 
 </html>

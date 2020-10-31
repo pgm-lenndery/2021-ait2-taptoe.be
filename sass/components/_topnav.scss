@@ -1,4 +1,9 @@
 .topnav {
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    right: 0px;
+    
     &, * {
         transition-duration: .5s;
     }
@@ -24,5 +29,9 @@
         background-color: $blue600;
         z-index: 100;
         transform: translate(50%,-50%);
+    }
+    
+    &_nav {
+        z-index: 2;
     }
 }

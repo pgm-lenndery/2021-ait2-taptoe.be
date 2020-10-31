@@ -22,3 +22,13 @@
         </div> -->
     </div>
 </header>
+<div data-label="topNav" class="topnav" data-sesam-target="topNav">
+    <div class="topnav__ornament"></div>
+    <div class="topnav__nav">
+        <nav>
+            <ul class="unlistify">
+                <li><a href="api/">Afmelden</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

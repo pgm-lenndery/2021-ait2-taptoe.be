@@ -2,7 +2,8 @@
     <form data-form="registerLocation" method="POST" action="api/add/location.php">
         <h5 class="text-center mb-4">
             <i class="uil uil-map-pin icon--large d-block mb-1 color--main"></i>
-            duid de locatie aan
+            pin deze plaats<br>
+            <small class="font--sub opacity--7">klik de juiste locatie op de kaart aan</small>
         </h5>
         <div id="mapbox" class="mapbox mb-5" data-label="registerPinLocation"></div>
         <div data-label="mapInfo"></div>
@@ -73,6 +74,14 @@
                 <label class="input__group">
                     <input type="text" name="name" placeholder="Paveljoen 13">
                     <span>Naam locatie*</span>
+                </label>
+                <label class="input__group first--ignore">
+                    <input type="text" name="address_long" placeholder=" ">
+                    <span>Long*</span>
+                </label>
+                <label class="input__group first--ignore">
+                    <input type="text" name="address_lat" placeholder=" ">
+                    <span>Lat*</span>
                 </label>
                 <div class="row">
                     <div class="col-10">

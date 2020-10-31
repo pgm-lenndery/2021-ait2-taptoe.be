@@ -116,7 +116,7 @@
                                     </li>
                                     <li class="flex-grid__item">
                                         <i class="uil uil-house-user"></i>
-                                        <span><?= $listing['prop_livingspace'] ?> lokalen</span>
+                                        <span><?= $listing['prop_rooms'] ?> lokalen</span>
                                     </li>
                                     <li class="flex-grid__item <?= boolPropConvert($listing['prop_beds']) ?>">
                                        <i class="uil uil-bed"></i>
@@ -164,9 +164,6 @@
         </div>
     </main>
     <?php require '../views/footer.php' ?>
-    <div data-label="topNav" class="topnav" data-sesam-target="topNav">
-        <div class="topnav__ornament"></div>
-    </div>
     <script type="module" src="static/modules/core.js"></script>
     <script src='https://unpkg.com/salvattore@1.0.9/dist/salvattore.js'></script>
 </body>

@@ -1,22 +1,41 @@
-import { node, fetchAPI, eventCallback } from 'https://unpkg.com/cutleryjs@3.5.5/dist/js/index.js';
+import { node, fetchAPI, eventCallback, Element } from 'https://unpkg.com/cutleryjs@3.5.5/dist/js/index.js';
 import 'https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js';
-import { mapboxInit } from './mapbox.js';
+import { mapboxInit, setManualPin } from './mapbox.js';
 import { pathCallback } from './routing.js'
 import { sesamCollapse, sesam } from 'https://unpkg.com/sesam-collapse';
-import {checkCurrentAnkers} from './utils.js';
+import { checkCurrentAnkers } from './utils.js';
 // import { salvattoreInit } from './ui.js';
 
 pathCallback('/', 'AIT%202/2021-ait2-taptoe.be')((path) => {
-     mapboxInit();
+    mapboxInit();
 });
+
 pathCallback('/detail', 'AIT%202/2021-ait2-taptoe.be')((path) => {
-     mapboxInit();
+    mapboxInit(false);
 });
+
 pathCallback('/listings', 'AIT%202/2021-ait2-taptoe.be')((path) => {
-     mapboxInit();
+    mapboxInit();
 });
-pathCallback('/account/locations', 'AIT%202/2021-ait2-taptoe.be')((path) => {
-     mapboxInit(false);
+
+pathCallback('/account/locations', 'AIT%202/2021-ait2-taptoe.be')(async (path) => {
+    const map = await mapboxInit(false);
+     
+    map.on('click', ({lngLat}) => {
+        const {lng, lat} = lngLat.wrap();
+        const prevMarker = node('.mapboxgl-canvas-container .mapbox__marker');
+        const el = new Element('div');
+        el.class(['mapbox__marker']);
+        
+        if (prevMarker) prevMarker.remove();
+        
+        new mapboxgl.Marker(el.return())
+            .setLngLat([lng, lat])
+            .addTo(map); 
+            
+        node('[data-form="registerLocation"] input[name="address_long"]').value = lng;
+        node('[data-form="registerLocation"] input[name="address_lat"]').value = lat;
+    });
 });
 
 const $listViewSelector = node('[data-label="listingsView"] select');

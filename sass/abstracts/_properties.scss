@@ -15,6 +15,14 @@
     width: fit-content;
 }
 
+.font--sub {
+    font-family: $fontSub;
+}
+
+.small, small {
+    font-size: .9rem;
+}
+
 .text--user-input, .text--user-input * {
     font-family: $fontSub;
     color: $grey600;
@@ -23,6 +31,11 @@
 @for $i from 1 through 9 {
     $i: ($i * 100);
     .font-weight--#{$i} {font-weight: $i;}
+}
+
+@for $i from 0 through 9 {
+    $value: ($i * 0.1);
+    .opacity--#{$i} {opacity: $value !important;}
 }
 
 $accents: (

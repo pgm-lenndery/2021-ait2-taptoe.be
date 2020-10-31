@@ -116,6 +116,14 @@
   width: fit-content;
 }
 
+.font--sub {
+  font-family: parisplus-std, sans-serif;
+}
+
+.small, small {
+  font-size: 0.9rem;
+}
+
 .text--user-input, .text--user-input * {
   font-family: parisplus-std, sans-serif;
   color: #868686;
@@ -155,6 +163,46 @@
 
 .font-weight--900 {
   font-weight: 900;
+}
+
+.opacity--0 {
+  opacity: 0 !important;
+}
+
+.opacity--1 {
+  opacity: 0.1 !important;
+}
+
+.opacity--2 {
+  opacity: 0.2 !important;
+}
+
+.opacity--3 {
+  opacity: 0.3 !important;
+}
+
+.opacity--4 {
+  opacity: 0.4 !important;
+}
+
+.opacity--5 {
+  opacity: 0.5 !important;
+}
+
+.opacity--6 {
+  opacity: 0.6 !important;
+}
+
+.opacity--7 {
+  opacity: 0.7 !important;
+}
+
+.opacity--8 {
+  opacity: 0.8 !important;
+}
+
+.opacity--9 {
+  opacity: 0.9 !important;
 }
 
 .color--main, [data-theme-sub=listing-detail] .listing-card__contact-detail, [data-theme-sub=listing-detail] .listing-card__contact-detail a {
@@ -362,6 +410,15 @@ i.uil.icon--large {
   font-size: 2rem;
 }
 
+input, select {
+  border: none;
+}
+input, input:focus, input:focus-within, select, select:focus, select:focus-within {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
 .input__choice {
   display: flex;
   justify-content: center;
@@ -445,7 +502,9 @@ i.uil.icon--large {
   color: white;
 }
 [data-form] .mapbox {
-  border-radius: 10px;
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+  margin-right: -2rem;
 }
 [data-form] label span {
   text-transform: lowercase;
@@ -724,6 +783,12 @@ i.uil.icon--large {
   margin-right: 1rem;
 }
 
+.topnav {
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  right: 0px;
+}
 .topnav, .topnav * {
   transition-duration: 0.5s;
 }
@@ -744,6 +809,9 @@ i.uil.icon--large {
   background-color: #12255E;
   z-index: 100;
   transform: translate(50%, -50%);
+}
+.topnav_nav {
+  z-index: 2;
 }
 
 .review {
@@ -1122,6 +1190,14 @@ i.uil.icon--large {
 }
 [data-theme-sub=listingsOverview] .footer__wrapper {
   margin-top: 0;
+}
+
+.mapbox * {
+  cursor: crosshair;
+}
+
+.mapbox *:active {
+  cursor: grabbing;
 }
 
 /*# sourceMappingURL=main.css.map */

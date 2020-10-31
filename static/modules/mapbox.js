@@ -35,17 +35,16 @@ const mapboxInit = async (addMarkers = true) => {
     map.on('click', ({lngLat}) => {
         const {lng, lat} = lngLat.wrap();
         mapHoverPosition = lngLat.wrap();
-        console.log(mapHoverPosition);
         // node('[data-label="mapInfo"]').innerHTML = `lng: ${lng.toFixed(2)}, lat: ${lat.toFixed(2)}`;
     });
     
     if (addMarkers) {
         const locationData = await new Api('http://localhost/AIT%202/2021-ait2-taptoe.be/api/locations.php').JSON();
-        console.log(locationData);
         
         (await locationData).setMarkersFromArray(map);
     }
     
+    return map;
 }
 
 const getLocations = (data) => {
@@ -75,7 +74,7 @@ Array.prototype.setMarkersFromArray = function(box) {
     })
 }
 
-Array.prototype.createList = function(wrapper) {
+Array.prototype.createList = function (wrapper) {
     this.forEach(item => {
         const card = new Element('a');
         card.inner(`
@@ -84,10 +83,29 @@ Array.prototype.createList = function(wrapper) {
     })
 }
 
+const setManualPin = (box) => {
+    box.on('click', ({lngLat}) => {
+        const {lng, lat} = lngLat.wrap();
+        const prevMarker = node('.mapboxgl-canvas-container .mapbox__marker');
+        const el = new Element('div');
+        el.class(['mapbox__marker']);
+        
+        if (prevMarker) prevMarker.remove();
+        
+        new mapboxgl.Marker(el.return())
+            .setLngLat([lng, lat])
+            // .setPopup(popup) // sets a popup on this marker
+            .addTo(box); 
+            
+        window.app.pinnedLocation = {lng, lat};
+    });
+}
+
 const getNearbyGroups = (positon = mapHoverPosition) => {
     getLocations(dataFinal)
 }
 
 export {
-    mapboxInit
+    mapboxInit,
+    setManualPin
 }

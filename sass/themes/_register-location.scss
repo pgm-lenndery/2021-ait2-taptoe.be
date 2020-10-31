@@ -1,0 +1,7 @@
+.mapbox * {
+    cursor: crosshair;
+}
+
+.mapbox *:active {
+    cursor: grabbing;
+}
