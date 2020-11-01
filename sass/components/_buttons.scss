@@ -1,6 +1,17 @@
 .btn {
     white-space: nowrap;
     border-radius: $bdRadius;
+    text-transform: lowercase;
+    
+    &:not(input) {
+        display: flex;
+        align-items: center;
+    }
+    
+    i.uil {
+        font-size: 1.3rem;
+        margin-right: .6rem;
+    }
     
     &--variable {
         display: flex;
@@ -27,10 +38,11 @@
         }
     }
     
-    &--main {
+    &--main-big {
         font-size: 1.3rem;
         border-radius: $bdRadius;
         color: white;
+        text-transform: unset;
         @extend .bg-color--second;
         
         &:hover {
@@ -39,9 +51,15 @@
         }
     }
     
-    &--grey {
-        background: $grey400;
+    &--main {
+        background-color: $colorMain;
+        
+        &, &:hover {
+            color: white;
+        }
     }
+    &--grey {background: $grey400;}
+    &--grey300 {background: $grey300;}
 }
 
 [data-label="accountIntroduction"] {

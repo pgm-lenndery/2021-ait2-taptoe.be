@@ -2,8 +2,6 @@
 
 require_once '../config.php';
 
-print_r($_POST);
-
 if (isset($_POST['login'])) {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';

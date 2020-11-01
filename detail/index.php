@@ -23,11 +23,11 @@
                             <div class="row">
                                 <div class="col-8">
                                     <h4 class="listing-card__type"><?= orgConvert($listing['organisation']) ?></h4>
-                                    <h2 class="listing-card__name"><?= $listing['name'] ?></h2>
+                                    <h2 class="listing-card__name"><?= $listing['location_name'] ?></h2>
                                     <p class="listing-card__contact-detail"><a href="mailto:<?= $listing['email'] ?>"><?= $listing['email'] ?></a> | <a href="https://<?= $listing['website'] ?>" target="_blank" rel="noopener"><?= $listing['website'] ?></a></p>
                                 </div>
                                 <div class="col d-flex flex-column align-items-end justify-content-center">
-                                    <a class="btn btn--main listing__reserve mb-3" href="#">Dit lokaal reserveren</a>
+                                    <a class="btn btn--main-big listing__reserve mb-3" href="#">Dit lokaal reserveren</a>
                                     <a href="#" class="text--user-input">Brochure lezen</a>
                                 </div>
                             </div>
@@ -76,9 +76,10 @@
                             
                             <h5>details</h5>
                             <div class="listing__detail text--user-input">
-                                <p>Wij beschikken over één groot terrein en één kleiner terreinen waartussen een bosje met gracht en onze lokalen liggen.</p>
+                                <?= $listing['details'] ?>
+                                <!-- <p>Wij beschikken over één groot terrein en één kleiner terreinen waartussen een bosje met gracht en onze lokalen liggen.</p>
                                 <p>Onze lokalen zijn van alles voorzien en zijn ruim genoeg voor om en bij de 50 man.</p>
-                                <p>Daarbij is onze scouts goed gelegen. Op nog geen 10 minuten ligt het (subtropisch) zwembad + park De Rozebroeken, enkele bakkers, een Aldi, Lidl, Colruyt en een grote Carrefour.</p>
+                                <p>Daarbij is onze scouts goed gelegen. Op nog geen 10 minuten ligt het (subtropisch) zwembad + park De Rozebroeken, enkele bakkers, een Aldi, Lidl, Colruyt en een grote Carrefour.</p> -->
                             </div>
                         </div>
                         <div class="col">

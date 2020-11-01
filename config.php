@@ -28,3 +28,11 @@ function boolPropConvert($value) {
     // if ($value == '1' ?? $value == 1) return true;
     if ($value == '0' ?? $value == 0) return 'listing__prop--na';
 }
+
+function sessionRequired($path = 'account/login') {
+    if (isset($_SESSION['user_id']) == false) {
+        global $BASE_URI;
+        header("location: {$BASE_URI}{$path}");
+    }
+}
+

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require_once '../../config.php' ?>
-<?php require '../../views/head.php' ?>
+<?php 
+    require_once '../../config.php';
+    require '../../views/head.php';
+    sessionRequired();
+?>
 
 <body data-theme="page" data-theme-sub="account-registration">
     <?php require '../../views/header.php' ?>

@@ -49,9 +49,9 @@
                 </h2>
                 <div data-label="accountIntroduction" class="d-flex align-items-center w-fit mt-6 mx-auto">
                     <span>begin hier</span>
-                    <a href="account?type=tenant" class="btn btn--main">als huurder</a>
+                    <a href="account?type=tenant" class="btn btn--main-big">als huurder</a>
                     <span>of</span>
-                    <a href="account?type=owner" class="btn btn--main">als verhuurder</a>
+                    <a href="account?type=owner" class="btn btn--main-big">als verhuurder</a>
                 </div>
             </div>
         </main>

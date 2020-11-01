@@ -1,0 +1,72 @@
+[data-label="listingsList"], .listings {
+    .listing-card {
+        display: grid;
+        justify-content: unset;
+        grid-template-columns: 50px auto 30%;
+        column-gap: 2rem;
+        background-color: $grey400;
+        padding: 1.4rem 1.4rem 1.4rem 2rem;
+        border-radius: $bdRadius;
+        
+        > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        &__org-img img {
+            border-radius: 100%;
+            background-color: white;
+        }
+        
+        &__address {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: $bdRadius*2;
+            
+            * {
+                font-family: $fontSub;
+                color: $grey600;
+            }
+            
+            .feather {
+                --size: 20px;
+                stroke: $colorSecond;
+                stroke-width: 3px;
+                margin-right: 1rem;
+                width: var(--size);
+                height: var(--size);
+            }
+            
+            .wrapper {font-size: 80%;}
+        }
+    }
+}
+
+.listings.listings--manage {
+    .listing-card {
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-gap: 0;
+        padding: 0%;
+        margin-bottom: 1rem;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+        
+        .listing__about {
+            padding: 1.4rem;
+        }
+        
+        .listing__actions {
+            display: flex;
+            align-items: flex-end;
+            width: 100%;
+            padding: 1.4rem 1.4rem 1.4rem 0rem;
+        }
+    }
+}

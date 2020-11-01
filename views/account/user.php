@@ -1,7 +1,6 @@
 <?php
     require_once '../config.php';
     require '../models/User.php';
-    require '../models/Location.php';
     $user = User::getByID($_SESSION['user_id']);
     
     // UPDATE `users` SET `account_type` = 'owner', `organisation` = 'prive' WHERE `users`.`user_id` = 10;
@@ -26,8 +25,6 @@
         ]);
         header('location: .');
     }
-    
-    $locations = Location::getByOwner($user['user_id']);
 ?>
 
 <div class="container">
@@ -62,19 +59,16 @@
         </div>
         <div class="col">
             <div class="mb-5">
-                <h4 class="mb-4">verhuurverzoeken</h4>
+                <h4 class="mb-4">verzoeken</h4>
                 <div class="card">
                     geen verzoeken
                 </div>
             </div>
             <div class="mb-4 d-flex justify-content-between align-items-center">
                 <h4 class="mb-0">je locaties</h4>
-                <a href="#" class="btn btn--grey">locatie toevoegen</a>
+                <a href="account/locations/add" class="btn btn--grey"><i class="uil uil-map-marker-plus"></i> locatie toevoegen</a>
             </div>
-            <div class="card">
-                geen locaties toegevoegd<br>
-                <?php print_r($locations) ?>
-            </div>
+            <?php require '../views/account/listings-list.php' ?>
         </div>
     </div>
 </div>

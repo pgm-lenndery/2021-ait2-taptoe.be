@@ -3,8 +3,7 @@ import 'https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js';
 import { mapboxInit, setManualPin } from './mapbox.js';
 import { pathCallback } from './routing.js'
 import { sesamCollapse, sesam } from 'https://unpkg.com/sesam-collapse';
-import { checkCurrentAnkers } from './utils.js';
-// import { salvattoreInit } from './ui.js';
+import { checkCurrentAnkers, formSelectDefaultValue } from './utils.js';
 
 pathCallback('/', 'AIT%202/2021-ait2-taptoe.be')((path) => {
     mapboxInit();
@@ -18,8 +17,12 @@ pathCallback('/listings', 'AIT%202/2021-ait2-taptoe.be')((path) => {
     mapboxInit();
 });
 
-pathCallback('/account/locations', 'AIT%202/2021-ait2-taptoe.be')(async (path) => {
+pathCallback(['/account/locations/add', '/account/locations/edit'], 'AIT%202/2021-ait2-taptoe.be')(async (path) => {
+    const url = new URL(window.location.href);
+    const param = url.searchParams.get('id');
     const map = await mapboxInit(false);
+    
+    // if (param) setManualPin(await map)
      
     map.on('click', ({lngLat}) => {
         const {lng, lat} = lngLat.wrap();
@@ -57,3 +60,4 @@ if ($listViewSelector) $listViewSelector.on('change')(({target}) => {
 checkCurrentAnkers();
 sesamCollapse.initialize();
 feather.replace();
+formSelectDefaultValue();

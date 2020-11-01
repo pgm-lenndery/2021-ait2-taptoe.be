@@ -8,8 +8,17 @@
         <div id="mapbox" class="mapbox mb-5" data-label="registerPinLocation"></div>
         <div data-label="mapInfo"></div>
         <div class="row">
+            <input type="hidden" name="address_lat" placeholder=" ">
+            <input type="hidden" name="address_long" placeholder=" ">
             <div class="col-4">
                 <h5 class="mb-4">eigenschappen</h5>
+                <label class="input__group inline">
+                    <span><i class="uil uil-fire"></i> Wordt momenteel verhuurd</span>
+                    <select name="status">
+                        <option value="1" selected>Ja</option>
+                        <option value="0">Nee</option>
+                    </select>
+                </label>
                 <label class="input__group inline">
                     <span><i class="uil uil-users-alt"></i> Capaciteit</span>
                     <input type="number" name="prop_capacity" placeholder="10">
@@ -56,7 +65,7 @@
                 </label>
                 <label class="input__group inline">
                     <span><i class="uil uil-bed"></i> Bedden aanwezig</span>
-                    <select name="prop_bedden">
+                    <select name="prop_beds">
                         <option value="1">Ja</option>
                         <option value="0" selected>Nee</option>
                     </select>
@@ -74,14 +83,6 @@
                 <label class="input__group">
                     <input type="text" name="name" placeholder="Paveljoen 13">
                     <span>Naam locatie*</span>
-                </label>
-                <label class="input__group first--ignore">
-                    <input type="text" name="address_long" placeholder=" ">
-                    <span>Long*</span>
-                </label>
-                <label class="input__group first--ignore">
-                    <input type="text" name="address_lat" placeholder=" ">
-                    <span>Lat*</span>
                 </label>
                 <div class="row">
                     <div class="col-10">

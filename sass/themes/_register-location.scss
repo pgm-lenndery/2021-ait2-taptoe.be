@@ -1,7 +1,9 @@
-.mapbox * {
-    cursor: crosshair;
-}
+[data-theme-sub="account-registration"] {
+    .mapbox * {
+        cursor: crosshair;
+    }
 
-.mapbox *:active {
-    cursor: grabbing;
+    .mapbox *:active {
+        cursor: grabbing;
+    }
 }

@@ -23,10 +23,20 @@ const baseURI = () => {
     else return ''
 }
 
+const formSelectDefaultValue = () => {
+    const $selects = node('select[value]', true)
+    $selects.forEach(s => {
+        const value = s.getAttribute('value')
+        const opt = s.querySelector(`option[value="${value}"]`);
+        opt.setAttribute('selected', '');
+    })
+}
+
 // console.log(node(`a[href]`));
 // console.log(`${baseURI()}account`);
 // console.log(baseURI());
 
 export {
-    checkCurrentAnkers
+    checkCurrentAnkers,
+    formSelectDefaultValue
 }

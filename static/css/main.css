@@ -217,7 +217,7 @@
   color: #33655B !important;
 }
 
-.bg-color--second, .btn--main {
+.bg-color--second, .btn--main-big {
   background-color: #33655B !important;
 }
 
@@ -618,6 +618,15 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
 .btn {
   white-space: nowrap;
   border-radius: 10px;
+  text-transform: lowercase;
+}
+.btn:not(input) {
+  display: flex;
+  align-items: center;
+}
+.btn i.uil {
+  font-size: 1.3rem;
+  margin-right: 0.6rem;
 }
 .btn--variable {
   display: flex;
@@ -634,17 +643,27 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   margin-left: 0.6rem;
   font-size: 1.5rem;
 }
-.btn--main {
+.btn--main-big {
   font-size: 1.3rem;
   border-radius: 10px;
   color: white;
+  text-transform: unset;
 }
-.btn--main:hover {
+.btn--main-big:hover {
   color: white;
   opacity: 0.8;
 }
+.btn--main {
+  background-color: #44A08C;
+}
+.btn--main, .btn--main:hover {
+  color: white;
+}
 .btn--grey {
   background: #EBEBEB;
+}
+.btn--grey300 {
+  background: #FAFAFA;
 }
 
 [data-label=accountIntroduction] span {
@@ -896,6 +915,68 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   background-color: #D0D0D0;
 }
 
+[data-label=listingsList] .listing-card, .listings .listing-card {
+  display: grid;
+  justify-content: unset;
+  grid-template-columns: 50px auto 30%;
+  column-gap: 2rem;
+  background-color: #EBEBEB;
+  padding: 1.4rem 1.4rem 1.4rem 2rem;
+  border-radius: 10px;
+}
+[data-label=listingsList] .listing-card > div, .listings .listing-card > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+[data-label=listingsList] .listing-card__org-img img, .listings .listing-card__org-img img {
+  border-radius: 100%;
+  background-color: white;
+}
+[data-label=listingsList] .listing-card__address, .listings .listing-card__address {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 20px;
+}
+[data-label=listingsList] .listing-card__address *, .listings .listing-card__address * {
+  font-family: parisplus-std, sans-serif;
+  color: #868686;
+}
+[data-label=listingsList] .listing-card__address .feather, .listings .listing-card__address .feather {
+  --size: 20px;
+  stroke: #33655B;
+  stroke-width: 3px;
+  margin-right: 1rem;
+  width: var(--size);
+  height: var(--size);
+}
+[data-label=listingsList] .listing-card__address .wrapper, .listings .listing-card__address .wrapper {
+  font-size: 80%;
+}
+
+.listings.listings--manage .listing-card {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 0;
+  padding: 0%;
+  margin-bottom: 1rem;
+}
+.listings.listings--manage .listing-card:last-child {
+  margin-bottom: 0;
+}
+.listings.listings--manage .listing-card .listing__about {
+  padding: 1.4rem;
+}
+.listings.listings--manage .listing-card .listing__actions {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  padding: 1.4rem 1.4rem 1.4rem 0rem;
+}
+
 [data-theme=page] header {
   border-bottom: 2px solid #D0D0D0;
   margin-bottom: 5rem;
@@ -1100,6 +1181,9 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
 .listing__score-summ .score__star img {
   margin-left: 0.3rem;
 }
+.listing__detail {
+  font-size: 0.9rem;
+}
 .listing__reviews {
   padding-top: 3rem;
   padding-bottom: 5rem;
@@ -1143,48 +1227,6 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   margin-top: 0px;
 }
 
-[data-label=listingsList] .listing-card {
-  display: grid;
-  justify-content: unset;
-  grid-template-columns: 50px auto 30%;
-  column-gap: 2rem;
-  background-color: #EBEBEB;
-  padding: 1.4rem 1.4rem 1.4rem 2rem;
-  border-radius: 10px;
-}
-[data-label=listingsList] .listing-card > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-[data-label=listingsList] .listing-card__org-img img {
-  border-radius: 100%;
-  background-color: white;
-}
-[data-label=listingsList] .listing-card__address {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 20px;
-}
-[data-label=listingsList] .listing-card__address * {
-  font-family: parisplus-std, sans-serif;
-  color: #868686;
-}
-[data-label=listingsList] .listing-card__address .feather {
-  --size: 20px;
-  stroke: #33655B;
-  stroke-width: 3px;
-  margin-right: 1rem;
-  width: var(--size);
-  height: var(--size);
-}
-[data-label=listingsList] .listing-card__address .wrapper {
-  font-size: 80%;
-}
-
 [data-theme-sub=listingsOverview] .mapbox {
   height: 65vh;
 }
@@ -1192,11 +1234,10 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   margin-top: 0;
 }
 
-.mapbox * {
+[data-theme-sub=account-registration] .mapbox * {
   cursor: crosshair;
 }
-
-.mapbox *:active {
+[data-theme-sub=account-registration] .mapbox *:active {
   cursor: grabbing;
 }
 
