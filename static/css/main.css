@@ -409,6 +409,9 @@ i.uil {
 i.uil.icon--large {
   font-size: 2rem;
 }
+i.uil.icon--xlarge {
+  font-size: 3rem;
+}
 
 input, select {
   border: none;
@@ -619,6 +622,7 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   white-space: nowrap;
   border-radius: 10px;
   text-transform: lowercase;
+  width: fit-content;
 }
 .btn:not(input) {
   display: flex;
@@ -692,6 +696,7 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   background-repeat: no-repeat;
   background-size: 100vw;
   background-position: 35vw 100%;
+  overflow: visible;
 }
 .header__wrapper {
   position: relative;
@@ -699,6 +704,7 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   align-items: center;
   gap: 2rem;
   padding: 2rem 2rem;
+  overflow: visible;
 }
 .header__search form .input-wrapper {
   padding: 0 1rem;
@@ -975,6 +981,23 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   align-items: flex-end;
   width: 100%;
   padding: 1.4rem 1.4rem 1.4rem 0rem;
+}
+
+[data-search=listings] {
+  position: relative;
+}
+[data-search=listings] .search__results {
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  right: 0px;
+  background-color: #FAFAFA;
+  border-radius: 10px;
+  z-index: 1;
+}
+[data-search=listings] .search__results .listing-card {
+  padding: 1rem;
+  background-color: transparent;
 }
 
 [data-theme=page] header {

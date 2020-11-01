@@ -2,6 +2,7 @@
     white-space: nowrap;
     border-radius: $bdRadius;
     text-transform: lowercase;
+    width: fit-content;
     
     &:not(input) {
         display: flex;

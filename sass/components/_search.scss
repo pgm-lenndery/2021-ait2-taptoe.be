@@ -1,0 +1,18 @@
+[data-search="listings"] {
+    position: relative;
+    
+    .search__results {
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        right: 0px;
+        background-color: $grey300;
+        border-radius: $bdRadius;
+        z-index: 1;
+        
+        .listing-card {
+            padding: 1rem;
+            background-color: transparent;
+        }
+    }
+}

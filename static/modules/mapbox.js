@@ -58,7 +58,6 @@ const getLocations = (data) => {
 
 Array.prototype.setMarkersFromArray = function(box) {
     this.forEach(org => {
-        console.log(org);
         const popup = new mapboxgl.Popup({ offset: -13 }).setHTML(`
             <a class="listing-card" href="detail/?id=${org.location_id}">
                 <small class="d-block listing__type">${orgConvert(org.organisation) || 'onbekend'}</small>

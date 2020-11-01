@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-size: 100vw;
   background-position: 35vw 100%;
+  overflow: visible;
 
   &__wrapper {
     position: relative;
@@ -13,6 +14,7 @@
     align-items: center;
     gap: 2rem;
     padding: 2rem 2rem;
+    overflow: visible;
   }
   
   &__search {

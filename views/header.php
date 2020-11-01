@@ -4,12 +4,14 @@
             <img height="30px" src="static/images/logo/logo_taptoe_monogram.svg" alt="" />
         </a>
         <div class="header__search">
-            <form method="POST" action="./">
-                <div class="input-wrapper">
+            <div class="form search" data-search="listings">
+                <div class="input-wrapper py-0">
                     <i data-feather="search"></i>
                     <input type="text" name="search">
                 </div>
-            </form>
+                <div class="search__results">
+                </div>
+            </div>
         </div>
         <div class="header__user-detail ml-auto">
             <a class="btn btn--variable" href="account">

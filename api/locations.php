@@ -13,8 +13,8 @@ require_once '../config.php';
 $sql = "SELECT * 
         FROM `locations` 
         INNER JOIN `users` ON locations.owner = `users`.`user_id`
-        WHERE `locations`.`location_name` 
-        LIKE :name 
+        WHERE `locations`.`location_name` LIKE :name 
+        OR `name` LIKE :name
         AND `address_zip` LIKE :zip";
         
 // $sql = "SELECT * 

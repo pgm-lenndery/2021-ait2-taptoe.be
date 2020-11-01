@@ -65,7 +65,8 @@
                                 <div class="row">
                                     <div class="col text--user-input">
                                         <strong>Verantwoordelijke</strong><br>
-                                        <span><?= $listing['contact'] ?></span>
+                                        <span><?= $listing['contact'] ?></span><br>
+                                        <a href="mailto:<?= $listing['email'] ?>"><?= $listing['email'] ?></a>
                                     </div>
                                     <div class="col text--user-input">
                                         <strong>Adres</strong><br>

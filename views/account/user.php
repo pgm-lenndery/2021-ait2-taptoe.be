@@ -61,7 +61,7 @@
             <div class="mb-5">
                 <h4 class="mb-4">verzoeken</h4>
                 <div class="card">
-                    geen verzoeken
+                    je hebt geen verzoeken
                 </div>
             </div>
             <div class="mb-4 d-flex justify-content-between align-items-center">
