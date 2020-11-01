@@ -35,17 +35,11 @@ const mapboxInit = async (addMarkers = true) => {
     map.on('click', ({lngLat}) => {
         const {lng, lat} = lngLat.wrap();
         mapHoverPosition = lngLat.wrap();
-        // node('[data-label="mapInfo"]').innerHTML = `lng: ${lng.toFixed(2)}, lat: ${lat.toFixed(2)}`;
     });
-    
+
     if (addMarkers === true) {
         const locationData = await new Api('http://localhost/AIT%202/2021-ait2-taptoe.be/api/locations.php').JSON();
-        
         (await locationData).setMarkersFromArray(map);
-    }
-    
-    if (typeof addMarkers == 'number') {
-        
     }
     
     return map;

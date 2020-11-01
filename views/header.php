@@ -7,7 +7,7 @@
             <div class="form search" data-search="listings">
                 <div class="input-wrapper py-0">
                     <i data-feather="search"></i>
-                    <input type="text" name="search">
+                    <input type="text" name="search" autocomplete="off">
                 </div>
                 <div class="search__results">
                 </div>
@@ -15,7 +15,7 @@
         </div>
         <div class="header__user-detail ml-auto">
             <a class="btn btn--variable" href="account">
-                <span class="btn__text">Haegepoorters Destelbergen</span>
+                <span class="btn__text"><?= isset($current_user['name']) ? $current_user['name'] : 'aanmelden of registreren' ; ?></span>
                 <i class="uil uil-user-circle mr-0"></i>
             </a>
         </div>

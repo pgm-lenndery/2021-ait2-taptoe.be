@@ -22,12 +22,12 @@
                         <div class="wrapper">
                             <div class="row">
                                 <div class="col-8">
-                                    <h4 class="listing-card__type"><?= orgConvert($listing['organisation']) ?></h4>
+                                    <h4 class="listing-card__type"><?= $listing['organisation'] == 'prv' ? $listing['name'] : orgConvert($listing['organisation']); ?></h4>
                                     <h2 class="listing-card__name"><?= $listing['location_name'] ?></h2>
                                     <p class="listing-card__contact-detail"><a href="mailto:<?= $listing['email'] ?>"><?= $listing['email'] ?></a> | <a href="https://<?= $listing['website'] ?>" target="_blank" rel="noopener"><?= $listing['website'] ?></a></p>
                                 </div>
                                 <div class="col d-flex flex-column align-items-end justify-content-center">
-                                    <a class="btn btn--main-big listing__reserve mb-3" href="#">Dit lokaal reserveren</a>
+                                    <a class="btn btn--main-big listing__reserve mb-3" href="reserve/?id=<?= $listing['location_id'] ?>">Dit lokaal reserveren</a>
                                     <a href="#" class="text--user-input">Brochure lezen</a>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                     <div class="col text--user-input">
                                         <strong>Verantwoordelijke</strong><br>
                                         <span><?= $listing['contact'] ?></span><br>
-                                        <a href="mailto:<?= $listing['email'] ?>"><?= $listing['email'] ?></a>
+                                        <a class="linkify" href="mailto:<?= $listing['email'] ?>"><?= $listing['email'] ?></a>
                                     </div>
                                     <div class="col text--user-input">
                                         <strong>Adres</strong><br>

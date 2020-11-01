@@ -52,15 +52,18 @@
         }
     }
     
-    &--main {
+    &--main, .card &--main {
         background-color: $colorMain;
         
-        &, &:hover {
+        &, &:hover, i.uil {
             color: white;
         }
     }
+    
     &--grey {background: $grey400;}
+    &--grey200 {background: $grey200;}
     &--grey300 {background: $grey300;}
+    &--blue500 {background: $blue500;}
 }
 
 [data-label="accountIntroduction"] {

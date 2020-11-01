@@ -22,23 +22,36 @@ pathCallback(['/account/locations/add', '/account/locations/edit'], 'AIT%202/202
     const url = new URL(window.location.href);
     const param = url.searchParams.get('id');
     const map = await mapboxInit(false);
+    const $inputLong = node('[data-form="registerLocation"] input[name="address_long"]');
+    const $inputLat = node('[data-form="registerLocation"] input[name="address_lat"]');
+    const prevMarker = node('.mapboxgl-canvas-container .mapbox__marker');
+    const el = new Element('div');
+    el.class(['mapbox__marker']);
     
-    // if (param) setManualPin(await map)
+    const currentCoords = {lng: parseFloat($inputLong.value), lat: parseFloat($inputLat.value)}
+    
+    if (currentCoords.lng) {
+        new mapboxgl.Marker(el.return())
+                .setLngLat([currentCoords.lng, currentCoords.lat])
+                .addTo(map); 
+                
+        map.flyTo({
+            center: [currentCoords.lng, currentCoords.lat],
+            zoom: 15,
+            essential: true
+        });      
+    }
      
     map.on('click', ({lngLat}) => {
         const {lng, lat} = lngLat.wrap();
-        const prevMarker = node('.mapboxgl-canvas-container .mapbox__marker');
-        const el = new Element('div');
-        el.class(['mapbox__marker']);
-        
         if (prevMarker) prevMarker.remove();
         
         new mapboxgl.Marker(el.return())
             .setLngLat([lng, lat])
             .addTo(map); 
             
-        node('[data-form="registerLocation"] input[name="address_long"]').value = lng;
-        node('[data-form="registerLocation"] input[name="address_lat"]').value = lat;
+        $inputLong.value = lng;
+        $inputLat.value = lat;
     });
 });
 

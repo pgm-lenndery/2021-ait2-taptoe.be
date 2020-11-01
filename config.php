@@ -1,7 +1,6 @@
 <?php
 session_start();
-$_SESSION["firstname"] = 'Dieter';
-
+setlocale(LC_TIME, "nl_NL");
 $BASE_URI = '/AIT 2/2021-ait2-taptoe.be/';
 $CLOUDINARY_BASE_URI = 'https://res.cloudinary.com/dd8fxudsh/image/upload/v1603294496/taptoe.be/';
 
@@ -36,3 +35,17 @@ function sessionRequired($path = 'account/login') {
     }
 }
 
+if (isset($_SESSION['user_id'])) {
+    global $db;
+        
+    $sql = "SELECT * 
+    FROM `users` 
+    WHERE `user_id` = :id";
+    
+    $pdo_statement = $db->prepare($sql);
+    $pdo_statement->execute([
+        ':id' => $_SESSION['user_id']
+    ]);
+    $result = $pdo_statement->fetchAll();
+    $current_user = $result[0];
+}

@@ -124,6 +124,10 @@
   font-size: 0.9rem;
 }
 
+.linkify {
+  color: #44A08C !important;
+}
+
 .text--user-input, .text--user-input * {
   font-family: parisplus-std, sans-serif;
   color: #868686;
@@ -259,6 +263,14 @@
 
 .bg-color--red {
   background-color: #AE002D !important;
+}
+
+.color--grey200 {
+  color: #e9e9e9 !important;
+}
+
+.bg-color--grey200 {
+  background-color: #e9e9e9 !important;
 }
 
 .color--grey300 {
@@ -657,17 +669,23 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   color: white;
   opacity: 0.8;
 }
-.btn--main {
+.btn--main, .card .btn--main {
   background-color: #44A08C;
 }
-.btn--main, .btn--main:hover {
+.btn--main, .btn--main:hover, .btn--main i.uil, .card .btn--main, .card .btn--main:hover, .card .btn--main i.uil {
   color: white;
 }
 .btn--grey {
   background: #EBEBEB;
 }
+.btn--grey200 {
+  background: #e9e9e9;
+}
 .btn--grey300 {
   background: #FAFAFA;
+}
+.btn--blue500 {
+  background: #253484;
 }
 
 [data-label=accountIntroduction] span {
@@ -714,6 +732,9 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
 }
 .header__user-detail {
   z-index: 1000;
+}
+.header__user-detail a.btn {
+  text-transform: unset;
 }
 .header__ornament {
   position: absolute;
@@ -996,8 +1017,39 @@ input, input:focus, input:focus-within, select, select:focus, select:focus-withi
   z-index: 1;
 }
 [data-search=listings] .search__results .listing-card {
-  padding: 1rem;
+  position: relative;
+  padding: 1.2rem 1.4rem;
   background-color: transparent;
+}
+[data-search=listings] .search__results .listing-card::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 1.4rem;
+  right: 1.4rem;
+  height: 2px;
+  background-color: #EBEBEB;
+}
+[data-search=listings] .search__results .listing-card:last-child::after {
+  display: none;
+}
+
+.reservations__list .reservation {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+  background-color: #EBEBEB;
+}
+.reservations__list .reservation__about {
+  padding: 1.4rem;
+}
+.reservations__list .reservation__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1.4rem;
 }
 
 [data-theme=page] header {

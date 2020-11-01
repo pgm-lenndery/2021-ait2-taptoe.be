@@ -1,4 +1,5 @@
-import { eventCallback, Api, Element } from './index.js'
+import { orgConvert } from './data.js';
+import { eventCallback, Api, Element } from './index.js';
 
 document.addEventListener('keyup', (e) => {
     eventCallback('[data-search="listings"] input[name="search"]', async (target) => {
@@ -7,7 +8,7 @@ document.addEventListener('keyup', (e) => {
         
         if (!isEmpty) {
             const locations = await new Api(`http://localhost/AIT%202/2021-ait2-taptoe.be/api/locations.php?name=${target.value}`).JSON();
-            showResults(await locations, $searchResults);
+            showResults(await locations.slice(0, 6), $searchResults);
         } else showResults([], $searchResults);
     }, false)
 })
@@ -17,7 +18,11 @@ const showResults = (data, container) => {
     data.forEach(l => {
         const card = new Element('a');
         card.class(['card', 'listing-card']);
-        card.inner(l.location_name);
+        card.inner(`
+            <small class="d-block listing__type">${l.organisation == 'prv' ? l.name : orgConvert(l.organisation)}</small>
+            <h6 class="listing__name">${l.location_name}</h6>
+            <small class="listing__location">${l.address_city}</small>
+        `);
         card.return().href = `detail/?id=${l.location_id}`;
         tempStr += card.return().outerHTML;
     })

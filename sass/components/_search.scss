@@ -11,8 +11,20 @@
         z-index: 1;
         
         .listing-card {
-            padding: 1rem;
+            position: relative;
+            padding: 1.2rem 1.4rem;
             background-color: transparent;
+            
+            &::after {
+                content: ' ';
+                position: absolute;
+                top: 100%;
+                left: 1.4rem; right: 1.4rem;
+                height: 2px;
+                background-color: $grey400;
+            }
+            
+            &:last-child::after {display: none;}
         }
     }
 }

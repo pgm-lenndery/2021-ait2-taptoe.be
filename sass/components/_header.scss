@@ -27,6 +27,10 @@
   
   &__user-detail {
     z-index: 1000;
+    
+    a.btn {
+      text-transform: unset;
+    }
   }
 
   &__brand {}

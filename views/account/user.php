@@ -1,6 +1,7 @@
 <?php
     require_once '../config.php';
     require '../models/User.php';
+                    
     $user = User::getByID($_SESSION['user_id']);
     
     // UPDATE `users` SET `account_type` = 'owner', `organisation` = 'prive' WHERE `users`.`user_id` = 10;
@@ -60,9 +61,7 @@
         <div class="col">
             <div class="mb-5">
                 <h4 class="mb-4">verzoeken</h4>
-                <div class="card">
-                    je hebt geen verzoeken
-                </div>
+                <?php require '../views/account/reservation-request-list.php' ?>
             </div>
             <div class="mb-4 d-flex justify-content-between align-items-center">
                 <h4 class="mb-0">je locaties</h4>
