@@ -3,11 +3,10 @@
     $locations = Location::getByOwner($_SESSION['user_id']);
 ?>
 
-<?php if ($locations == 0): ?>
+<?php if (count($locations) == 0): ?>
     <div class="card">
         geen locaties toegevoegd
     </div>
-<?= count($locations) ?>
 <?php else: ?>
     <div class="listings listings--manage">
         <?php foreach ($locations as $key => $item) {

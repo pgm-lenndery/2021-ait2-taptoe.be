@@ -5,6 +5,7 @@ import { pathCallback } from './routing.js'
 import { sesamCollapse, sesam } from 'https://unpkg.com/sesam-collapse';
 import { checkCurrentAnkers, formSelectDefaultValue } from './utils.js';
 import './search.js';
+import './events.js';
 
 pathCallback('/', 'AIT%202/2021-ait2-taptoe.be')((path) => {
     mapboxInit();

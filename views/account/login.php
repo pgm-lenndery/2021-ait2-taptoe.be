@@ -4,6 +4,9 @@
     if (isset($_POST['login'])) {
         $user = User::getByEmail($_POST['email']);
         
+        // print_r($user);
+        print_r($user['password']);
+        
         if (isset($user['email'])) {
             if (password_verify($_POST['password'], $user['password'])) {
                 $_SESSION['user_id'] = $user['user_id'];

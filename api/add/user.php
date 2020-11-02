@@ -2,8 +2,6 @@
 
 require_once '../../config.php';
 
-print_r($_POST);
-
 if (isset($_POST['register'])) {
     $password = $_POST['password'] ?? '';
     $account_type = $_POST['accountType'] ?? '';
@@ -27,7 +25,10 @@ if (isset($_POST['register'])) {
         ':contact' => $contact,
         ':organisation' => $organisation,
     ]);
+    
+    header('location: ' . $BASE_URI . 'account/login');
 }
 
+// hpoleole123
 
 // INSERT INTO `users` (`user_id`, `account_type`, `name`, `home`, `website`, `email`, `contact`, `organisation`, `created`) VALUES ('3', 'owner', 'Sint-Bernadette', '0', 'sintbernadette.be', 'verhuur@sintbernadette.be', 'Onbekend', 'sgv', 'today'); -->

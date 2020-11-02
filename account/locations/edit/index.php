@@ -11,6 +11,7 @@
     $id = $_GET['id'];
     $location = Location::getByID($id);
     $is_owner = $location['owner'] == $_SESSION['user_id'];
+    $breaks = array("<br />","<br>","<br/>", "<br /><br />");
 ?>
 
 <body data-theme="page" data-theme-sub="account-registration">
@@ -134,7 +135,7 @@
                                 </div>
                             </div>
                             <label class="input__group mt-3">
-                                <textarea name="details" class="w-100" placeholder=" " rows="10"><?= $location['details']?></textarea>
+                                <textarea name="details" class="w-100" placeholder=" " rows="10"><?= str_ireplace($breaks, "\n", $location['details']); ?></textarea>
                                 <span>Over deze locatie*</span>
                             </label>
                             <input class="btn" type="submit" name="save" value="Wijzigingen opslaan">
